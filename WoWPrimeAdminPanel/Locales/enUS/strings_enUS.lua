@@ -21,12 +21,12 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel-Strings", "enUS", true)
 if L then
   local translations = {
-    ["ma_GmatchRevision"] = "AzerothCore rev. (%S*)",
+    ["ma_GmatchRevision"] = "%w+Core rev%. (%S*)",
     ["ma_GmatchGPS"] = "X: (.*) Y: (.*) Z",
-    -- FIX: Use %x+ to match any quality color (not just white |cffffffff).
+    -- FIX: Use %x+ to match any quality color (not just white |cfff0f0f0).
     -- AzerothCore sends items/spells/etc with their actual quality colors:
     --   Poor=9d9d9d, Common=ffffffff, Uncommon=1eff00, Rare=0070dd, Epic=a335ee, etc.
-    -- The old hardcoded |cffffffff caused all non-white results to silently disappear.
+    -- The old hardcoded |cfff0f0f0 caused all non-white results to silently disappear.
     -- Also changed .* to [^|]* for item suffix and (.-) for name to avoid greedy-match issues.
     ["ma_GmatchItem"] = "%|c%x+%|Hitem:(%d+)[^|]*%|h%[(.-)%]%|h%|r",
     ["ma_GmatchQuest"] = ".-(%d+).*%[(.-)%]%|h%|r",

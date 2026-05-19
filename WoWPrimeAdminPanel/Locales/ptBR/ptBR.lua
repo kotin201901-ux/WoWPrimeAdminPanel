@@ -65,7 +65,7 @@ RED            |cffff0000
 GOLD           |cffffcc00
 GOLD2			     |cffFFC125
 GREY           |cff888888
-WHITE          |cffffffff
+WHITE          |cfff0f0f0
 SUBWHITE       |cffbbbbbb
 MAGENTA        |cffff00ff
 YELLOW         |cffffff00
@@ -98,8 +98,8 @@ if L then
     ["ma_InfoOnlineText"]             = "Jogadores Online: ...",
     ["ma_InfoMaxOnlineText"]          = "Máximo Online: ...",
     ["ma_InfoUptimeText"]             = "Tempo Ativo do Servidor: ...",
-    ["ma_InfoRevisionText"]           = "Revisão AzerothCore: ...",
-    ["info_revision"]                 = "|cFF00FF00Revisão AzerothCore:|r ",
+    ["ma_InfoRevisionText"]           = "Revisão TrinityCore: ...",
+    ["info_revision"]                 = "|cFF00FF00Revisão TrinityCore:|r ",
     ["info_platform"]                 = "|cFF00FF00Plataforma do Servidor:|r ",
     ["info_online"]                   = "|cFF00FF00Jogadores Online:|r ",
     ["info_maxonline"]                = "|cFF00FF00Máximo Online:|r ",

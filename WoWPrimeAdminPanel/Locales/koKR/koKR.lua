@@ -65,7 +65,7 @@ RED            |cffff0000
 GOLD           |cffffcc00
 GOLD2			     |cffFFC125
 GREY           |cff888888
-WHITE          |cffffffff
+WHITE          |cfff0f0f0
 SUBWHITE       |cffbbbbbb
 MAGENTA        |cffff00ff
 YELLOW         |cffffff00
@@ -98,8 +98,8 @@ if L then
     ["ma_InfoOnlineText"]             = "접속 중인 플레이어: ...",
     ["ma_InfoMaxOnlineText"]          = "최대 접속자 수: ...",
     ["ma_InfoUptimeText"]             = "서버 가동 시간: ...",
-    ["ma_InfoRevisionText"]           = "AzerothCore 리비전: ...",
-    ["info_revision"]                 = "|cFF00FF00AzerothCore rev.|r ",
+    ["ma_InfoRevisionText"]           = "TrinityCore 리비전: ...",
+    ["info_revision"]                 = "|cFF00FF00TrinityCore rev.|r ",
     ["info_platform"]                 = "|cFF00FF00서버 플랫폼:|r ",
     ["info_online"]                   = "|cFF00FF00접속 중인 플레이어:|r ",
     ["info_maxonline"]                = "|cFF00FF00최대 접속자 수:|r ",

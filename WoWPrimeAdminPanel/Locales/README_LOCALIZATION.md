@@ -73,14 +73,14 @@ All locale files currently contain English text as placeholders. This allows the
    **Color Codes:**
 
    ```lua
-   ["info_revision"] = "|cFF00FF00AzerothCore rev.|r "
+   ["info_revision"] = "|cFF00FF00TrinityCore rev.|r "
    ["realm"] = "|cFF00FF00Realm:|r "..GetCVar("realmName")
    ```
 
    Only translate the text between the color codes:
 
    ```lua
-   ["info_revision"] = "|cFF00FF00Révision AzerothCore:|r "
+   ["info_revision"] = "|cFF00FF00Révision TrinityCore:|r "
    ["realm"] = "|cFF00FF00Royaume:|r "..GetCVar("realmName")
    ```
 
@@ -188,4 +188,4 @@ Thank you to all translators who contribute to making WoWPrimeAdminPanel accessi
 
 ---
 
-**Note:** The pattern files (`strings_*.lua`) typically don't need translation unless your server provides localized responses. Most AzerothCore servers use English for GM commands and responses.
+**Note:** The pattern files (`strings_*.lua`) typically don't need translation unless your server provides localized responses. Most TrinityCore servers use English for GM commands and responses.

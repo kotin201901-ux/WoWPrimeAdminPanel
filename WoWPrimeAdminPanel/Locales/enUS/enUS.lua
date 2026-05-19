@@ -65,7 +65,7 @@ RED            |cffff0000
 GOLD           |cffffcc00
 GOLD2			     |cffFFC125
 GREY           |cff888888
-WHITE          |cffffffff
+WHITE          |cfff0f0f0
 SUBWHITE       |cffbbbbbb
 MAGENTA        |cffff00ff
 YELLOW         |cffffff00
@@ -98,8 +98,8 @@ if L then
     ["ma_InfoOnlineText"]             = "Players Online: ...",
     ["ma_InfoMaxOnlineText"]          = "Maximum Online: ...",
     ["ma_InfoUptimeText"]             = "Server Uptime: ...",
-    ["ma_InfoRevisionText"]           = "AzerothCore Revision: ...",
-    ["info_revision"]                 = "|cFF00FF00AzerothCore rev.|r ",
+    ["ma_InfoRevisionText"]           = "TrinityCore Revision: ...",
+    ["info_revision"]                 = "|cFF00FF00TrinityCore rev.|r ",
     ["info_platform"]                 = "|cFF00FF00Server Platform:|r ",
     ["info_online"]                   = "|cFF00FF00Players Online:|r ",
     ["info_maxonline"]                = "|cFF00FF00Maximum Online:|r ",

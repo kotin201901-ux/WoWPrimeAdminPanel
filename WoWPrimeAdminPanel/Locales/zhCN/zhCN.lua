@@ -65,7 +65,7 @@ RED            |cffff0000
 GOLD           |cffffcc00
 GOLD2			     |cffFFC125
 GREY           |cff888888
-WHITE          |cffffffff
+WHITE          |cfff0f0f0
 SUBWHITE       |cffbbbbbb
 MAGENTA        |cffff00ff
 YELLOW         |cffffff00
@@ -98,8 +98,8 @@ if L then
     ["ma_InfoOnlineText"]             = "在线玩家: ...",
     ["ma_InfoMaxOnlineText"]          = "最高在线: ...",
     ["ma_InfoUptimeText"]             = "服务器运行时间: ...",
-    ["ma_InfoRevisionText"]           = "AzerothCore版本: ...",
-    ["info_revision"]                 = "|cFF00FF00AzerothCore版本:|r ",
+    ["ma_InfoRevisionText"]           = "TrinityCore版本: ...",
+    ["info_revision"]                 = "|cFF00FF00TrinityCore版本:|r ",
     ["info_platform"]                 = "|cFF00FF00服务器平台:|r ",
     ["info_online"]                   = "|cFF00FF00在线玩家:|r ",
     ["info_maxonline"]                = "|cFF00FF00最高在线:|r ",

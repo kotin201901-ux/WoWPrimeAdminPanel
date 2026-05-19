@@ -21,7 +21,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel-Strings", "koKR")
 if L then
   local translations = {
-    ["ma_GmatchRevision"] = "AzerothCore rev. (%S*)",
+    ["ma_GmatchRevision"] = "%w+Core rev%. (%S*)",
     ["ma_GmatchGPS"] = "X: (.*) Y: (.*) Z",
     ["ma_GmatchItem"] = "%|c%x+%|Hitem:(%d+)[^|]*%|h%[(.-)%]%|h%|r",
     ["ma_GmatchQuest"] = ".-(%d+).*%[(.-)%]%|h%|r",

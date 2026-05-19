@@ -412,8 +412,8 @@ function WoWPrimeAdminPanel:CreateNpcSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildButton({
@@ -463,8 +463,8 @@ function WoWPrimeAdminPanel:CreateNpcSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildButton({
@@ -596,8 +596,8 @@ function WoWPrimeAdminPanel:CreateNpcSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildFontString({
@@ -628,8 +628,8 @@ function WoWPrimeAdminPanel:CreateNpcSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildButton({
@@ -1111,8 +1111,8 @@ function WoWPrimeAdminPanel:CreateNpcSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildButton({
@@ -1158,9 +1158,9 @@ function WoWPrimeAdminPanel:CreateNpcSection()
   -- Make boxes read-only (display only)
   ma_NPC_guidbutton:EnableMouse(false)
   ma_NPC_guidbutton:EnableKeyboard(false)
-  ma_NPC_guidbutton:SetTextColor(1, 1, 1, 1) -- White text for visibility
+  ma_NPC_guidbutton:SetTextColor(0.941, 0.941, 0.941, 1) -- White text for visibility
 
-  ma_NPC_idbutton:SetTextColor(1, 1, 1, 1) -- White text for visibility
+  ma_NPC_idbutton:SetTextColor(0.941, 0.941, 0.941, 1) -- White text for visibility
   ma_NPC_addIDbutton:Disable()
   local function UpdateNPCAddIDButton()
     if ma_NPC_idbutton:GetText() ~= "" or ma_npccharactertarget:GetText() ~= "" then
@@ -1174,10 +1174,10 @@ function WoWPrimeAdminPanel:CreateNpcSection()
 
   ma_npcdisplayid:EnableMouse(false)
   ma_npcdisplayid:EnableKeyboard(false)
-  ma_npcdisplayid:SetTextColor(1, 1, 1, 1) -- White text for visibility
+  ma_npcdisplayid:SetTextColor(0.941, 0.941, 0.941, 1) -- White text for visibility
 
   ma_npc_distance_box:EnableMouse(false)
   ma_npc_distance_box:EnableKeyboard(false)
-  ma_npc_distance_box:SetTextColor(1, 1, 1, 1) -- White text for visibility
+  ma_npc_distance_box:SetTextColor(0.941, 0.941, 0.941, 1) -- White text for visibility
 
 end

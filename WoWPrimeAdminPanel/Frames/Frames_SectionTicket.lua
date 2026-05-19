@@ -331,7 +331,7 @@ function WoWPrimeAdminPanel:CreateTicketSection()
   end)
 
   -- Set text color to white to ensure visibility
-  ma_ticketdetail:SetTextColor(1, 1, 1, 1)
+  ma_ticketdetail:SetTextColor(0.941, 0.941, 0.941, 1)
   -- Set text to align at top-left
   ma_ticketdetail:SetJustifyH("LEFT")
   ma_ticketdetail:SetJustifyV("TOP")

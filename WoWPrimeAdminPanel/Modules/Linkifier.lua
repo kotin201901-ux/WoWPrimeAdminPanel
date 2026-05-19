@@ -62,23 +62,23 @@ function MangLinkifier_Decompose(chatstring)
       chatstring = string.gsub (chatstring, Strings["lfer_GPSxyz2"], MangLinkifier_Link(Strings["lfer_GPSxyz3"], "%1 %2 %3", "gpsxyz"))
     end
     ----------====~~ Added Options for Clickable Links Made by Mangos ~~====----------
-    for guid in string.gmatch(chatstring, "%|cffffffff%|Hquest:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP QUEST
-      chatstring = string.gsub (chatstring, "%|cffffffff%|Hquest:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupquest"))
+    for guid in string.gmatch(chatstring, "%|cfff0f0f0%|Hquest:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP QUEST
+      chatstring = string.gsub (chatstring, "%|cfff0f0f0%|Hquest:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupquest"))
     end
     for guid in string.gmatch(chatstring, "%|cff(.*)%|Hitem:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP ITEM -- Bug when more than 1 item is linked in chat, it is not  translated
       chatstring = string.gsub (chatstring, "%|cff(.*)%|Hitem:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%3-%1", "%2", "lookupitem"))
     end
-    for guid in string.gmatch(chatstring, "%|cffffffff%|Hgameobject_entry:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP OBJECT
-      chatstring = string.gsub (chatstring, "%|cffffffff%|Hgameobject_entry:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupgo"))
+    for guid in string.gmatch(chatstring, "%|cfff0f0f0%|Hgameobject_entry:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP OBJECT
+      chatstring = string.gsub (chatstring, "%|cfff0f0f0%|Hgameobject_entry:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupgo"))
     end
-    for guid in string.gmatch(chatstring, "%|cffffffff%|Hcreature_entry:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP CREATURE
-      chatstring = string.gsub (chatstring, "%|cffffffff%|Hcreature_entry:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupcreature"))
+    for guid in string.gmatch(chatstring, "%|cfff0f0f0%|Hcreature_entry:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP CREATURE
+      chatstring = string.gsub (chatstring, "%|cfff0f0f0%|Hcreature_entry:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupcreature"))
     end
-    for guid in string.gmatch(chatstring, "%|cffffffff%|Hspell:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP SPELL
-      chatstring = string.gsub (chatstring, "%|cffffffff%|Hspell:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupspell"))
+    for guid in string.gmatch(chatstring, "%|cfff0f0f0%|Hspell:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP SPELL
+      chatstring = string.gsub (chatstring, "%|cfff0f0f0%|Hspell:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookupspell"))
     end
-    for guid in string.gmatch(chatstring, "%|cffffffff%|Htele:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP TELE
-      chatstring = string.gsub (chatstring, "%|cffffffff%|Htele:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookuptele"))
+    for guid in string.gmatch(chatstring, "%|cfff0f0f0%|Htele:(.*)%|h%[(.*)%]%|h%|r") do --LOOKUP TELE
+      chatstring = string.gsub (chatstring, "%|cfff0f0f0%|Htele:(.*)%|h%[(.*)%]%|h%|r", MangLinkifier_Link("%2", "%1", "lookuptele"))
     end
   end
   return chatstring
@@ -126,7 +126,7 @@ function MangLinkifier_Link(orgtxt, id, type)
     link = orgtxt .." - |cff" .. urlcolor .. "|Hgpsxyz:" .. id .. "|h["..Locale["lfer_Teleport"].."]|h|r "
   ----------====~~ Added Options for Clickable Links Made by Mangos ~~====----------
   elseif(type == "lookupquest") then
-    link = "|cffffffff|Hquest:" .. id .. "|h[" .. orgtxt .. "]|h|r"
+    link = "|cfff0f0f0|Hquest:" .. id .. "|h[" .. orgtxt .. "]|h|r"
     link = link .." - |cff" .. urlcolor .. "|Hlookupquestadd:" .. id .. "|h["..Locale["lfer_Add"].."]|h|r "
     link = link .." - |cff" .. urlcolor .. "|Hlookupquestrem:" .. id .. "|h["..Locale["lfer_Remove"].."]|h|r "
   elseif(type == "lookupitem") then
@@ -136,19 +136,19 @@ function MangLinkifier_Link(orgtxt, id, type)
       link = link .." - |cff" .. urlcolor .. "|Hlookupitemlist:" .. id .. "|h["..Locale["lfer_List"].."]|h|r "
     end
   elseif(type == "lookupgo") then
-    link = "|cffffffff|Hgameobject_entry:" .. id .. "|h[" .. orgtxt .. "]|h|r"
+    link = "|cfff0f0f0|Hgameobject_entry:" .. id .. "|h[" .. orgtxt .. "]|h|r"
     link = link .." - |cff" .. urlcolor .. "|Hlookupgoadd:" .. id .. "|h["..Locale["lfer_Spawn"].."]|h|r "
     link = link .." - |cff" .. urlcolor .. "|Hlookupgolist:" .. id .. "|h["..Locale["lfer_List"].."]|h|r "
   elseif(type == "lookupcreature") then
-    link = "|cffffffff|Hcreature_entry:" .. id .. "|h[" .. orgtxt .. "]|h|r"
+    link = "|cfff0f0f0|Hcreature_entry:" .. id .. "|h[" .. orgtxt .. "]|h|r"
     link = link .." - |cff" .. urlcolor .. "|Hlookupcreatureadd:" .. id .. "|h["..Locale["lfer_Spawn"].."]|h|r "
     link = link .." - |cff" .. urlcolor .. "|Hlookupcreaturelist:" .. id .. "|h["..Locale["lfer_List"].."]|h|r "
   elseif(type == "lookupspell") then
-    link = "|cffffffff|Hspell:" .. id .. "|h[" .. orgtxt .. "]|h|r"
+    link = "|cfff0f0f0|Hspell:" .. id .. "|h[" .. orgtxt .. "]|h|r"
     link = link .." - |cff" .. urlcolor .. "|Hlookupspelllearn:" .. id .. "|h["..Locale["lfer_Learn"].."]|h|r "
     link = link .." - |cff" .. urlcolor .. "|Hlookupspellunlearn:" .. id .. "|h["..Locale["lfer_Unlearn"].."]|h|r "
   elseif(type == "lookuptele") then
-    link = "|cffffffff|Htele:" .. id .. "|h[" .. orgtxt .. "]|h|r"
+    link = "|cfff0f0f0|Htele:" .. id .. "|h[" .. orgtxt .. "]|h|r"
     link = link .." - |cff" .. urlcolor .. "|Hlookupteledelete:" .. id .. "|h["..Locale["lfer_Delete"].."]|h|r "
   else
     link = orgtxt .." - |cffc20000"..Locale["lfer_Error"].." |r |cff008873" .. type .. "|r"

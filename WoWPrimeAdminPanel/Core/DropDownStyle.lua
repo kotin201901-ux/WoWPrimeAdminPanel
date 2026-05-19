@@ -25,22 +25,22 @@ local WoWPrimeAdminPanelDropDownStyle = {}
 local DROPDOWN_STYLE = {
   -- Main dropdown button
   button = {
-    bgColor = {0.1, 0.1, 0.1, 0.9},
-    borderColor = {0.3, 0.3, 0.3, 1},
+    bgColor = {0.051, 0.106, 0.165, 0.9},
+    borderColor = {0.173, 0.290, 0.420, 1},
     textColor = {1, 1, 1},
-    highlightColor = {0.2, 0.5, 0.8, 0.3}
+    highlightColor = {0.533, 0.784, 1.0, 0.3}
   },
   -- Dropdown menu panel
   menu = {
-    bgColor = {0.1, 0.1, 0.1, 0.95},
-    borderColor = {0.3, 0.3, 0.3, 1},
+    bgColor = {0.078, 0.157, 0.220, 0.95},
+    borderColor = {0.173, 0.290, 0.420, 1},
     backdropInsets = 3
   },
   -- Menu buttons
   menuButton = {
     textColor = {1, 1, 1},
-    highlightColor = {0.2, 0.5, 0.8, 0.3},
-    checkedColor = {0.3, 0.6, 1, 0.5}
+    highlightColor = {0.533, 0.784, 1.0, 0.3},
+    checkedColor = {0.533, 0.784, 1.0, 0.5}
   }
 }
 
@@ -99,7 +99,7 @@ function WoWPrimeAdminPanelDropDownStyle:StyleDropDownButton(dropdown)
       button.arrow = button:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       if button.arrow then
         button.arrow:SetText("v")
-        button.arrow:SetTextColor(0.8, 0.8, 0.8)
+        button.arrow:SetTextColor(0.627, 0.690, 0.753)
         button.arrow:SetPoint("CENTER", button, "CENTER", 10, 0)
       end
     end
@@ -240,7 +240,7 @@ function WoWPrimeAdminPanelDropDownStyle:StyleMenuButton(button, level)
       expandArrow.text = expandArrow:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       if expandArrow.text then
         expandArrow.text:SetText(">")
-        expandArrow.text:SetTextColor(0.8, 0.8, 0.8)
+        expandArrow.text:SetTextColor(0.627, 0.690, 0.753)
         expandArrow.text:SetPoint("CENTER", expandArrow, "CENTER", 0, 0)
       end
     end

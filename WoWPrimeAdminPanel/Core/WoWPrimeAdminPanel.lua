@@ -868,9 +868,9 @@ function WoWPrimeAdminPanel:AddMessage(frame, text, r, g, b, id)
     if gettingGOBinfo > 0 then
         if gettingGOBinfo==1 then
             ma_gobtargetinfo:SetText("")
-            ma_gobtargetinfo:SetText(ma_gobtargetinfo:GetText().."|cffffffff"..string.gsub(text, ']', ']\n|cffffffff'))
+            ma_gobtargetinfo:SetText(ma_gobtargetinfo:GetText().."|cfff0f0f0"..string.gsub(text, ']', ']\n|cfff0f0f0'))
         else
-            ma_gobtargetinfo:SetText(ma_gobtargetinfo:GetText().."\n|cffffffff"..string.gsub(text, ']', ']\n|cffffffff'))
+            ma_gobtargetinfo:SetText(ma_gobtargetinfo:GetText().."\n|cfff0f0f0"..string.gsub(text, ']', ']\n|cfff0f0f0'))
         end
         gettingGOBinfo=gettingGOBinfo+1
         if gettingGOBinfo>=7 then
@@ -1898,7 +1898,7 @@ function WoWPrimeAdminPanel:MailItemSlotReceiveDrag(slotNum)
   local cursorType, itemId, itemLink = GetCursorInfo()
 
   if cursorType == "item" then
-    -- Extract item ID from item link (format: |cffffffff|Hitem:12345:0:0:0:0:0:0:0|h[Item Name]|h|r)
+    -- Extract item ID from item link (format: |cfff0f0f0|Hitem:12345:0:0:0:0:0:0:0|h[Item Name]|h|r)
     local extractedItemId = itemLink and itemLink:match("item:(%d+):")
 
     if extractedItemId then
@@ -2979,7 +2979,7 @@ function PopupScrollUpdate()
             qr, qg, qb = GetItemQualityColor(itemQuality)
           end
           local qHex = string.format("%02x%02x%02x", qr*255, qg*255, qb*255)
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cffffffff"..item["itId"].."|r  |cff"..qHex..item["itName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cfff0f0f0"..item["itId"].."|r  |cff"..qHex..item["itName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function() WoWPrimeAdminPanel:PushRecent("item", item); WoWPrimeAdminPanel:ConfirmAddItem(item["itId"], item["itName"]) end, item, "item", isFav, key))
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:SetHyperlink("item:"..item["itId"]); GameTooltip:Show() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:Hide() end)
@@ -3030,7 +3030,7 @@ function PopupScrollUpdate()
           local itemset = filtered[lineplusoffset]
           local key = itemset._origKey
           SetEntryRowShading(line)
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cffffffff"..itemset["isId"].."|r Name: |cffffffff"..itemset["isName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cfff0f0f0"..itemset["isId"].."|r Name: |cfff0f0f0"..itemset["isName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function() WoWPrimeAdminPanel:PushRecent("itemset", itemset); WoWPrimeAdminPanel:AddItemSet(itemset["isId"]) end, itemset, "itemset", isFav, key))
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function() end)
@@ -3077,7 +3077,7 @@ function PopupScrollUpdate()
           local key = quest._origKey
           SetEntryRowShading(line)
           -- Build display text with status flags
-          local displayText = "Id: |cffffffff"..quest["qsId"].."|r Name: |cffffffff"..quest["qsName"].."|r"
+          local displayText = "Id: |cfff0f0f0"..quest["qsId"].."|r Name: |cfff0f0f0"..quest["qsName"].."|r"
 
           -- Add status flag with color coding
           if quest["qsStatus"] then
@@ -3131,7 +3131,7 @@ function PopupScrollUpdate()
           local creature = filtered[lineplusoffset]
           local key = creature._origKey
           SetEntryRowShading(line)
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cffffffff"..creature["crId"].."|r Name: |cffffffff"..creature["crName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cfff0f0f0"..creature["crId"].."|r Name: |cfff0f0f0"..creature["crName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function(self, button) WoWPrimeAdminPanel:PushRecent("creature", creature); WoWPrimeAdminPanel:Creature(creature["crId"], button) end, creature, "creature", isFav, key))
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function() end)
@@ -3189,7 +3189,7 @@ function PopupScrollUpdate()
             _G["ma_PopupScrollBarEntryIcon"..line]:Hide()
           end
           --spell info
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cffffffff"..spell["spId"].."|r Name: |cffffffff"..spell["spName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cfff0f0f0"..spell["spId"].."|r Name: |cfff0f0f0"..spell["spName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function(self, button) WoWPrimeAdminPanel:PushRecent("spell", spell); WoWPrimeAdminPanelCommands.LearnSpell(spell["spId"], button) end, spell, "spell", isFav, key))
@@ -3235,7 +3235,7 @@ function PopupScrollUpdate()
           local skill = filtered[lineplusoffset]
           local key = skill._origKey
           SetEntryRowShading(line)
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cffffffff"..skill["skId"].."|r Name: |cffffffff"..skill["skName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cfff0f0f0"..skill["skId"].."|r Name: |cfff0f0f0"..skill["skName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function() WoWPrimeAdminPanel:PushRecent("skill", skill); WoWPrimeAdminPanel:SetSkill(skill["skId"], nil, nil) end, skill, "skill", isFav, key))
@@ -3281,7 +3281,7 @@ function PopupScrollUpdate()
           local object = filtered[lineplusoffset]
           local key = object._origKey
           SetEntryRowShading(line)
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cffffffff"..object["objId"].."|r Name: |cffffffff"..object["objName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Id: |cfff0f0f0"..object["objId"].."|r Name: |cfff0f0f0"..object["objName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function(self, button) WoWPrimeAdminPanel:PushRecent("object", object); WoWPrimeAdminPanel:AddObject(object["objId"], button) end, object, "object", isFav, key))
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function() end)
@@ -3327,7 +3327,7 @@ function PopupScrollUpdate()
           local tele = filtered[lineplusoffset]
           local key = tele._origKey
           SetEntryRowShading(line)
-          _G["ma_PopupScrollBarEntry"..line]:SetText("Name: |cffffffff"..tele["tName"].."|r")
+          _G["ma_PopupScrollBarEntry"..line]:SetText("Name: |cfff0f0f0"..tele["tName"].."|r")
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", WithRightClick(function() WoWPrimeAdminPanel:PushRecent("tele", tele); WoWPrimeAdminPanel:ChatMsg(".tele "..tele["tName"]) end, tele, "tele", isFav, key))
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnEnter", function() end)
           _G["ma_PopupScrollBarEntry"..line]:SetScript("OnLeave", function() end)
@@ -3399,25 +3399,25 @@ function PopupScrollUpdate()
             -- Build display text and wire click
             local displayText
             if recentType == "item" then
-              displayText = "Id: |cffffffff"..entry["itId"].."|r Name: |cffffffff"..entry["itName"].."|r"
+              displayText = "Id: |cfff0f0f0"..entry["itId"].."|r Name: |cfff0f0f0"..entry["itName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function() WoWPrimeAdminPanel:ConfirmAddItem(entry["itId"], entry["itName"]) end)
             elseif recentType == "itemset" then
-              displayText = "Id: |cffffffff"..entry["isId"].."|r Name: |cffffffff"..entry["isName"].."|r"
+              displayText = "Id: |cfff0f0f0"..entry["isId"].."|r Name: |cfff0f0f0"..entry["isName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function() WoWPrimeAdminPanel:AddItemSet(entry["isId"]) end)
             elseif recentType == "spell" then
-              displayText = "Id: |cffffffff"..entry["spId"].."|r Name: |cffffffff"..entry["spName"].."|r"
+              displayText = "Id: |cfff0f0f0"..entry["spId"].."|r Name: |cfff0f0f0"..entry["spName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function(self, button) WoWPrimeAdminPanelCommands.LearnSpell(entry["spId"], button) end)
             elseif recentType == "skill" then
-              displayText = "Id: |cffffffff"..entry["skId"].."|r Name: |cffffffff"..entry["skName"].."|r"
+              displayText = "Id: |cfff0f0f0"..entry["skId"].."|r Name: |cfff0f0f0"..entry["skName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function() WoWPrimeAdminPanel:SetSkill(entry["skId"], nil, nil) end)
             elseif recentType == "creature" then
-              displayText = "Id: |cffffffff"..entry["crId"].."|r Name: |cffffffff"..entry["crName"].."|r"
+              displayText = "Id: |cfff0f0f0"..entry["crId"].."|r Name: |cfff0f0f0"..entry["crName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function(self, button) WoWPrimeAdminPanel:Creature(entry["crId"], button) end)
             elseif recentType == "object" then
-              displayText = "Id: |cffffffff"..entry["objId"].."|r Name: |cffffffff"..entry["objName"].."|r"
+              displayText = "Id: |cfff0f0f0"..entry["objId"].."|r Name: |cfff0f0f0"..entry["objName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function(self, button) WoWPrimeAdminPanel:AddObject(entry["objId"], button) end)
             elseif recentType == "tele" then
-              displayText = "Name: |cffffffff"..entry["tName"].."|r"
+              displayText = "Name: |cfff0f0f0"..entry["tName"].."|r"
               _G["ma_PopupScrollBarEntry"..line]:SetScript("OnClick", function() WoWPrimeAdminPanel:ChatMsg(".tele "..entry["tName"]) end)
             end
             _G["ma_PopupScrollBarEntry"..line]:SetText(displayText)

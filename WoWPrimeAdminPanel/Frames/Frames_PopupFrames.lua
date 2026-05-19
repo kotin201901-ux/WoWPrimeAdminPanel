@@ -398,8 +398,8 @@ function WoWPrimeAdminPanel:CreatePopupFrames()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    fb:SetBackdropColor(0, 0, 0, 0.6)
-    fb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    fb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    fb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
     fb:Hide()
 
     local fbLabel = ma_popupbottomframe:CreateFontString("ma_filterlabel", "OVERLAY", "ChatFontNormal")
@@ -1123,8 +1123,8 @@ function WoWPrimeAdminPanel:CreatePopupFrames()
     edgeSize = 2,
     insets   = { left = 2, right = 2, top = 2, bottom = 2 }
   })
-  ctxMenu:SetBackdropColor(0.1, 0.1, 0.1, 0.95)
-  ctxMenu:SetBackdropBorderColor(0.4, 0.4, 0.4, 1)
+  ctxMenu:SetBackdropColor(0.078, 0.157, 0.220, 0.95)
+  ctxMenu:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   ctxMenu:Hide()
   -- Close menu when clicking elsewhere
   ctxMenu:SetScript("OnShow", function(self)
@@ -1143,7 +1143,7 @@ function WoWPrimeAdminPanel:CreatePopupFrames()
   ctxFav:SetNormalFontObject("GameFontNormalSmall")
   ctxFav:SetText(Locale["ma_CtxAddFav"])
   ctxFav:SetScript("OnEnter", function(self) self:GetFontString():SetTextColor(1, 1, 0, 1) end)
-  ctxFav:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(1, 1, 1, 1) end)
+  ctxFav:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(0.941, 0.941, 0.941, 1) end)
 
   -- Slot 1 (top): Remove from Favorites — shown on Favorites tab, same anchor as ctxFav
   local ctxRemoveFav = CreateFrame("Button", "ma_ctxRemoveFavButton", ctxMenu)
@@ -1152,7 +1152,7 @@ function WoWPrimeAdminPanel:CreatePopupFrames()
   ctxRemoveFav:SetNormalFontObject("GameFontNormalSmall")
   ctxRemoveFav:SetText(Locale["ma_CtxRemoveFav"])
   ctxRemoveFav:SetScript("OnEnter", function(self) self:GetFontString():SetTextColor(1, 0.2, 0.2, 1) end)
-  ctxRemoveFav:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(1, 1, 1, 1) end)
+  ctxRemoveFav:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(0.941, 0.941, 0.941, 1) end)
   ctxRemoveFav:Hide()
 
   -- Slot 2: Copy ID — anchored dynamically in ShowEntryContextMenu
@@ -1161,7 +1161,7 @@ function WoWPrimeAdminPanel:CreatePopupFrames()
   ctxCopyId:SetNormalFontObject("GameFontNormalSmall")
   ctxCopyId:SetText(Locale["ma_CtxCopyId"])
   ctxCopyId:SetScript("OnEnter", function(self) self:GetFontString():SetTextColor(1, 1, 0, 1) end)
-  ctxCopyId:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(1, 1, 1, 1) end)
+  ctxCopyId:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(0.941, 0.941, 0.941, 1) end)
 
   -- Slot 3: Copy Name — anchored dynamically in ShowEntryContextMenu
   local ctxCopyName = CreateFrame("Button", "ma_ctxCopyNameButton", ctxMenu)
@@ -1169,7 +1169,7 @@ function WoWPrimeAdminPanel:CreatePopupFrames()
   ctxCopyName:SetNormalFontObject("GameFontNormalSmall")
   ctxCopyName:SetText(Locale["ma_CtxCopyName"])
   ctxCopyName:SetScript("OnEnter", function(self) self:GetFontString():SetTextColor(1, 1, 0, 1) end)
-  ctxCopyName:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(1, 1, 1, 1) end)
+  ctxCopyName:SetScript("OnLeave", function(self) self:GetFontString():SetTextColor(0.941, 0.941, 0.941, 1) end)
 end
 
 -- Setup Mail Popup UI

@@ -414,8 +414,8 @@ function WoWPrimeAdminPanel:CreateCharSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildButton({
@@ -1299,8 +1299,8 @@ function WoWPrimeAdminPanel:CreateCharSection()
       edgeSize = 2,
       insets   = { left = 2, right = 2, top = 2, bottom = 2 }
     })
-    eb:SetBackdropColor(0, 0, 0, 0.6)
-    eb:SetBackdropBorderColor(0.35, 0.35, 0.35, 1)
+    eb:SetBackdropColor(0.051, 0.106, 0.165, 0.6)
+    eb:SetBackdropBorderColor(0.173, 0.290, 0.420, 1)
   end
 
   FrameLib:BuildButton({
