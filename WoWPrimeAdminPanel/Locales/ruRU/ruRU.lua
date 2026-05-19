@@ -186,14 +186,14 @@ if L then
     ["tt_acctpasswdbutton"]           = "Установить $account пароль $password [[Параметры: $accountname $password $password]]",
   --[[Control Labels]]
     ["ma_OffButton"]                  = "Выкл",
-    ["ma_displaylevelbutton"]         = "Показать уровень аккаунта",
+    ["ma_displaylevelbutton"]         = "Уровень акк.",
     ["ma_GMOnButton"]                 = "GM-режим вкл",
     ["ma_FlyOnButton"]                = "Полет вкл",
     ["ma_SpectatorOnButton"]           = "Наблюдатель вкл",
     ["ma_WhisperOnButton"]            = "Шепот вкл",
     ["ma_InvisOnButton"]              = "Невидимость вкл",
     ["ma_TaxiOnButton"]               = "Чит Такси вкл",
-    ["ma_instakill"]                  = "Мгновенное убийство существ",
+    ["ma_instakill"]                  = "Мгн.убийство",
     ["ma_ScreenshotButton"]           = "Скриншот",
     ["ma_BankButton"]                 = "Банк",
     ["ma_DismountButton"]             = "Спешиться",
@@ -246,7 +246,7 @@ if L then
 
 --[[Char Tab]]
   --[[Name]]
-    ["tabmenu_Char"]                  = "ПЕРСОНАЖ",
+    ["tabmenu_Char"]                  = "ПЕРС",
     ["tt_CharButton"]                 = "Переключить окно с действиями для персонажа.",
   --[[Tooltips]]
     ["tt_RotateLeft"]                 = "Повернуть влево.",
@@ -324,8 +324,8 @@ if L then
     ["ma_Learn"]                      = "Изучить",
     ["ma_Modify"]                     = "Изменить",
     ["ma_Reset"]                      = "Сбросить",
-    ["ma_CharBindsight"]              = "Привязать зрение",
-    ["ma_CharUnBindsight"]            = "Отвязать зрение",
+    ["ma_CharBindsight"]              = "Прив. зрение",
+    ["ma_CharUnBindsight"]            = "Отв. зрение",
     ["ma_charrename"]                 = "Переименовать",
     ["ma_charcustomize"]              = "Кастомизация",
     ["ma_charchangerace"]             = "Смена расы",
@@ -345,7 +345,7 @@ if L then
     ["ma_createguildbutton"]          = "Создать Г",
     ["ma_teleaddbutton"]              = "Добавить Тп",
     ["ma_baninfobutton"]              = "Инфо бана",
-    ["ma_groupgobutton"]              = "Призвать группу",
+    ["ma_groupgobutton"]              = "Призв. группу",
     ["ma_guildinvitebutton"]          = "Пригласить Г",
     ["ma_teledelbutton"]              = "Удалить Тп",
     ["ma_banlistbutton"]              = "Список банов",
@@ -509,8 +509,8 @@ if L then
     ["ma_PlayEmote1"]                 = "Эмоция",
     ["ma_PlayEmote2"]                 = "Эмоция",
     ["ma_DistanceBox"]                = "Расстояние",
-    ["ma_NPCBindsight"]               = "Привязать зрение",
-    ["ma_NPCUnBindsight"]             = "Отвязать зрение",
+    ["ma_NPCBindsight"]               = "Прив. зрение",
+    ["ma_NPCUnBindsight"]             = "Отв. зрение",
     ["ma_NPCComeToMe"]                = "Ко мне",
     ["ma_npcpossess"]                 = "Контроль",
     ["ma_npcunpossess"]               = "Снять контроль",
@@ -543,7 +543,7 @@ if L then
 
 --[[GObjects Tab]]
   --[[Name]]
-    ["tabmenu_GO"]                    = "ОБЪЕКТЫ",
+    ["tabmenu_GO"]                    = "ОБЪ",
     ["tt_GOButton"]                   = "Переключить окно с функциями для объектов.",
   --[[Tooltips]]
     ["tt_ObjGo"]                      = "Перейти к выбранному объекту",
@@ -582,7 +582,7 @@ if L then
     ["ma_GOEntryIDLabel"]             = "EntryID",
     ["ma_GODisplayIDLabel"]           = "DisplayID",
     ["ma_GORangeLabel"]               = "Дальность",
-    ["ma_GOAddOnMoveLabel"]           = "Добавить при движении",
+    ["ma_GOAddOnMoveLabel"]           = "Доб. при движ.",
     ["ma_GOMoveOnMoveLabel"]          = "Перем при движении",
     ["ma_GOMoveDistancesLabel"]       = "Расстояния движения",
     ["ma_GOFwdBackLabel"]             = "Вперед/Назад:",
@@ -610,7 +610,7 @@ if L then
 
 --[[Tele Tab]]
   --[[Name]]
-    ["tabmenu_Tele"]                  = "ТЕЛЕПОРТ",
+    ["tabmenu_Tele"]                  = "ТЛП",
     ["tt_TeleButton"]                 = "Переключить окно с функциями телепортации.",
   --[[Tooltips]]
   --[[Control Labels]]
@@ -638,7 +638,7 @@ if L then
 
 --[[Tickets Tab]]
   --[[Name]]
-    ["tabmenu_ticket"]                = "ТИКЕТЫ",
+    ["tabmenu_ticket"]                = "ТКТ",
     ["tt_TicketButton"]               = "Переключить окно, которое показывает все тикеты и позволяет управлять ими.",
   --[[Tooltips]]
     ["tt_TicketOn"]                   = "Объявлять о новых тикетах.",
@@ -708,12 +708,12 @@ if L then
     ["cmd_toggle"]                    = "Переключить главное окно",
     ["cmd_transparency"]              = "Переключить базовую прозрачность (0.5 или 1.0)",
     ["cmd_tooltip"]                   = "Переключить показ подсказок кнопок",
-    ["ma_EnableTransparency"]         = "Включить прозрачность",
-    ["ma_EnableLocalizedSearch"]      = "Включить локализованные строки поиска",
-    ["ma_EnableMinimenu"]             = "Включить минименю/панель",
+    ["ma_EnableTransparency"]         = "Прозрачность",
+    ["ma_EnableLocalizedSearch"]      = "Локализ. поиск",
+    ["ma_EnableMinimenu"]             = "Минименю/панель",
     ["ma_EnableTooltips"]             = "Включить подсказки",
-    ["ma_ShowChatOutput"]             = "Показывать вывод чата",
-    ["ma_ShowMinimapButton"]          = "Показать кнопку миникарты",
+    ["ma_ShowChatOutput"]             = "Вывод чата",
+    ["ma_ShowMinimapButton"]          = "Кнопка миникарты",
     ["ma_InstantTeleport"]            = "Нет предупреждения перед телепортацией",
     ["ma_FrameStrataLabel"]           = "Уровень слоя фрейма:",
     ["ma_FrameStrataBackground"]      = "Фон",
@@ -755,8 +755,8 @@ if L then
     ["ma_AnnounceButton"]             = "Объявление",
     ["ma_ShutdownButton"]             = "Выключить сервер",
     ["ma_CancelShutdownButton"]       = "Отменить выключение",
-    ["ma_ReloadTableButton"]          = "Перезагрузить таблицу",
-    ["ma_ReloadScriptsButton"]        = "Перезагрузить скрипты",
+    ["ma_ReloadTableButton"]          = "Перезагр. таблицу",
+    ["ma_ReloadScriptsButton"]        = "Перезагр. скрипты",
     ["ma_UpdateButton"]               = "Обновить",
     ["ma_ServerLatencyLabel"]         = "|cFF00FF00^Задержка сервера:|r",
     ["ma_UpdateDiffLabel"]            = "|cFF00FF00^Разница обновления:|r",
@@ -832,9 +832,9 @@ if L then
 
 --[[Deprecated, but may be used again.]]
     ["ma_LearnAllButton"]             = "Все заклинания",
-    ["ma_LearnCraftsButton"]          = "Все профессии и рецепты",
-    ["ma_LearnGMButton"]              = "Базовые GM заклинания",
-    ["ma_LearnClassButton"]           = "Все заклинания класса",
+    ["ma_LearnCraftsButton"]          = "Проф.+рецепты",
+    ["ma_LearnGMButton"]              = "Базовые GM закл.",
+    ["ma_LearnClassButton"]           = "Заклинания класса",
     ["ma_GPSButton"]                  = "GPS",
     ["ma_Online"]                     = "Онлайн",
     ["ma_Offline"]                    = "Оффлайн",
