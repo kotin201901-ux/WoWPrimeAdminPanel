@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_frFR(). Change
@@ -82,13 +82,13 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "frFR")
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "frFR")
 if L then
   local translations = {
 --[[General]]
   --[[Tooltips]]
     ["tt_Default"]                    = "Déplacez votre curseur sur un élément pour afficher l'info-bulle !",
-    ["tt_LanguageButton"]             = "Recharger AzerothAdmin et appliquer la langue sélectionnée.",
+    ["tt_LanguageButton"]             = "Recharger WoWPrimeAdminPanel et appliquer la langue sélectionnée.",
     ["tt_RefreshButton"]              = "Actualiser les informations du serveur.",
   --[[Control Labels]]
     ["ma_LanguageButton"]             = "Recharger UI",
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "Fermer la fenêtre",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" },
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" },
     ["lang"]                          = "Français",
     ["realm"]                         = "|cFF00FF00Royaume :|r "..GetCVar("realmName"),
     ["char"]                          = "|cFF00FF00Perso :|r "..UnitName("player"),
@@ -127,7 +127,7 @@ if L then
   --[[Name]]
     ["tabmenu_Main"]                  = "GM",
   --[[Tooltips]]
-    ["tt_MainButton"]                 = "Ouvrir/Fermer la fenêtre principale d'AzerothAdmin.",
+    ["tt_MainButton"]                 = "Ouvrir/Fermer la fenêtre principale d'WoWPrimeAdminPanel.",
     ["tt_DisplayAccountLevel"]        = "Afficher le niveau de votre compte",
     ["tt_GMOnButton"]                 = "Activer votre mode GM.",
     ["tt_GMOffButton"]                = "Désactiver votre mode GM.",
@@ -736,11 +736,11 @@ if L then
     ["ma_WeatherRain"]                = "Pluie",
     ["ma_WeatherSnow"]                = "Neige",
     ["ma_WeatherSand"]                = "Sable",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r Paramètre de transparence sauvegardé. Appliquez les modifications ou rechargez l'UI pour l'appliquer.",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r Paramètre des chaînes de recherche localisées sauvegardé. Appliquez les modifications ou rechargez l'UI pour l'appliquer.",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r Paramètre du minimenu sauvegardé.",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r Paramètre des info-bulles sauvegardé. Appliquez les modifications ou rechargez l'UI pour l'appliquer.",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r Paramètre de sortie du chat sauvegardé.",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r Paramètre de transparence sauvegardé. Appliquez les modifications ou rechargez l'UI pour l'appliquer.",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r Paramètre des chaînes de recherche localisées sauvegardé. Appliquez les modifications ou rechargez l'UI pour l'appliquer.",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r Paramètre du minimenu sauvegardé.",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r Paramètre des info-bulles sauvegardé. Appliquez les modifications ou rechargez l'UI pour l'appliquer.",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r Paramètre de sortie du chat sauvegardé.",
 
 
 

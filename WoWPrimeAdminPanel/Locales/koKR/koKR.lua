@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_koKR(). Change
@@ -82,13 +82,13 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "koKR")
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "koKR")
 if L then
   local translations = {
 --[[General]]
   --[[Tooltips]]
     ["tt_Default"]                    = "요소 위에 커서를 올려 툴팁을 토글하세요!",
-    ["tt_LanguageButton"]             = "AzerothAdmin을 다시 로드하고 선택한 언어를 적용합니다.",
+    ["tt_LanguageButton"]             = "WoWPrimeAdminPanel을 다시 로드하고 선택한 언어를 적용합니다.",
     ["tt_RefreshButton"]              = "서버 정보를 새로고침합니다.",
   --[[Control Labels]]
     ["ma_LanguageButton"]             = "UI 새로고침",
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "창 닫기",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" },
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" },
     ["lang"]                          = "한국어",
     ["realm"]                         = "|cFF00FF00서버:|r "..GetCVar("realmName"),
     ["char"]                          = "|cFF00FF00캐릭터:|r "..UnitName("player"),
@@ -127,7 +127,7 @@ if L then
   --[[Name]]
     ["tabmenu_Main"]                  = "GM",
   --[[Tooltips]]
-    ["tt_MainButton"]                 = "AzerothAdmin 메인 프레임을 토글합니다.",
+    ["tt_MainButton"]                 = "WoWPrimeAdminPanel 메인 프레임을 토글합니다.",
     ["tt_DisplayAccountLevel"]        = "계정 레벨을 표시합니다",
     ["tt_GMOnButton"]                 = "GM 모드를 활성화합니다.",
     ["tt_GMOffButton"]                = "GM 모드를 비활성화합니다.",
@@ -736,11 +736,11 @@ if L then
     ["ma_WeatherRain"]                = "비",
     ["ma_WeatherSnow"]                = "눈",
     ["ma_WeatherSand"]                = "모래바람",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r 투명도 설정이 저장되었습니다. 변경 사항 업데이트 또는 UI 다시 로드하여 적용하세요.",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r 지역화된 검색 문자열 설정이 저장되었습니다. 변경 사항 업데이트 또는 UI 다시 로드하여 적용하세요.",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r 미니메뉴 설정이 저장되었습니다.",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r 툴팁 설정이 저장되었습니다. 변경 사항 업데이트 또는 UI 다시 로드하여 적용하세요.",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r 채팅 출력 설정이 저장되었습니다.",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r 투명도 설정이 저장되었습니다. 변경 사항 업데이트 또는 UI 다시 로드하여 적용하세요.",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r 지역화된 검색 문자열 설정이 저장되었습니다. 변경 사항 업데이트 또는 UI 다시 로드하여 적용하세요.",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r 미니메뉴 설정이 저장되었습니다.",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r 툴팁 설정이 저장되었습니다. 변경 사항 업데이트 또는 UI 다시 로드하여 적용하세요.",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r 채팅 출력 설정이 저장되었습니다.",
 
 
 

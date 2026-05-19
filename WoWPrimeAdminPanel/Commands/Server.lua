@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,80 +12,80 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
-AzerothAdminCommands = AzerothAdminCommands or {}
+WoWPrimeAdminPanelCommands = WoWPrimeAdminPanelCommands or {}
 
-function AzerothAdminCommands.Announce(value)
-  AzerothAdmin:ChatMsg(".announce "..value)
+function WoWPrimeAdminPanelCommands.Announce(value)
+  WoWPrimeAdminPanel:ChatMsg(".announce "..value)
 end
 
-function AzerothAdminCommands.Restart(value)
+function WoWPrimeAdminPanelCommands.Restart(value)
   if value == "" then
-    AzerothAdmin:Print(Locale["msg_restart_time_required"])
+    WoWPrimeAdminPanel:Print(Locale["msg_restart_time_required"])
     return
   end
 
   local confirmMsg = string.format(Locale["msg_restart_confirm"], value)
 
-  AzerothAdmin:ShowConfirmDialog(confirmMsg, function()
-    AzerothAdminCommands.Restart_Confirmed(value)
+  WoWPrimeAdminPanel:ShowConfirmDialog(confirmMsg, function()
+    WoWPrimeAdminPanelCommands.Restart_Confirmed(value)
   end)
 end
 
-function AzerothAdminCommands.Restart_Confirmed(value)
-  AzerothAdmin:ChatMsg(".server restart "..value)
+function WoWPrimeAdminPanelCommands.Restart_Confirmed(value)
+  WoWPrimeAdminPanel:ChatMsg(".server restart "..value)
   ma_restartbutton:Disable()
   ma_shutdownbutton:Disable()
   ma_shutdowneditbox:ClearFocus()
   ma_shutdowneditbox:EnableMouse(false)
   ma_shutdowneditbox:EnableKeyboard(false)
   ma_cancelshutdownbutton:Show()
-  AzerothAdmin.db.char.serverRestartState = "restart"
+  WoWPrimeAdminPanel.db.char.serverRestartState = "restart"
 end
 
-function AzerothAdminCommands.Shutdown(value)
+function WoWPrimeAdminPanelCommands.Shutdown(value)
   if value == "" then
-    AzerothAdmin:Print(Locale["msg_shutdown_time_required"])
+    WoWPrimeAdminPanel:Print(Locale["msg_shutdown_time_required"])
     return
   end
 
   local confirmMsg = string.format(Locale["msg_shutdown_confirm"], value)
 
-  AzerothAdmin:ShowConfirmDialog(confirmMsg, function()
-    AzerothAdminCommands.Shutdown_Confirmed(value)
+  WoWPrimeAdminPanel:ShowConfirmDialog(confirmMsg, function()
+    WoWPrimeAdminPanelCommands.Shutdown_Confirmed(value)
   end)
 end
 
-function AzerothAdminCommands.Shutdown_Confirmed(value)
-  AzerothAdmin:ChatMsg(".server shutdown "..value)
+function WoWPrimeAdminPanelCommands.Shutdown_Confirmed(value)
+  WoWPrimeAdminPanel:ChatMsg(".server shutdown "..value)
   ma_restartbutton:Disable()
   ma_shutdownbutton:Disable()
   ma_shutdowneditbox:ClearFocus()
   ma_shutdowneditbox:EnableMouse(false)
   ma_shutdowneditbox:EnableKeyboard(false)
   ma_cancelshutdownbutton:Show()
-  AzerothAdmin.db.char.serverRestartState = "shutdown"
+  WoWPrimeAdminPanel.db.char.serverRestartState = "shutdown"
 end
 
-function AzerothAdminCommands.CancelShutdown()
-  AzerothAdmin:ChatMsg(".server shutdown cancel")
+function WoWPrimeAdminPanelCommands.CancelShutdown()
+  WoWPrimeAdminPanel:ChatMsg(".server shutdown cancel")
   ma_cancelshutdownbutton:Hide()
   ma_restartbutton:Enable()
   ma_shutdownbutton:Enable()
   ma_shutdowneditbox:EnableMouse(true)
   ma_shutdowneditbox:EnableKeyboard(true)
-  AzerothAdmin.db.char.serverRestartState = nil
+  WoWPrimeAdminPanel.db.char.serverRestartState = nil
 end
 
-function AzerothAdminCommands.ReloadTable(tablename)
+function WoWPrimeAdminPanelCommands.ReloadTable(tablename)
   if tablename ~= "" then
-    AzerothAdmin:ChatMsg(".reload "..tablename)
+    WoWPrimeAdminPanel:ChatMsg(".reload "..tablename)
   end
 end
 
-function AzerothAdminCommands.ReloadScripts()
-  AzerothAdmin:ChatMsg(".reload smart_scripts")
+function WoWPrimeAdminPanelCommands.ReloadScripts()
+  WoWPrimeAdminPanel:ChatMsg(".reload smart_scripts")
 end

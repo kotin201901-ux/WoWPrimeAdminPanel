@@ -1,15 +1,15 @@
 ## Interface: 30300
-## Title: AzerothAdmin
-## Author: SuperStyro Dev team + Manground Dev Team
+## Title: WoWPrimeAdminPanel
+## Author: SuperStyro Dev team + Manground Dev Team + WoW-Prime adaptation
 ## Version: 23
-## Notes: This addon works with Azerothcore 3.3.5
-## Name: AzerothAdmin
+## Notes: Admin panel for WoW-Prime server (TrinityCore 3.3.5)
+## Name: WoWPrimeAdminPanel
 ## License: GPLv3
 ## OptionalDeps: Ace3
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## SavedVariables: AzerothAdminDb
-## SavedVariablesPerCharacter: AzerothAdminDbPerChar
+## SavedVariables: WoWPrimeAdminPanelDb
+## SavedVariablesPerCharacter: WoWPrimeAdminPanelDbPerChar
 
 Libraries\LibStub\LibStub.lua
 Libraries\CallbackHandler-1.0\CallbackHandler-1.0.xml
@@ -59,7 +59,7 @@ Commands\GO.lua
 Data\DBC.lua
 Data\TeleportTable.lua
 Core\Init.lua
-Core\AzerothAdmin.lua
+Core\WoWPrimeAdminPanel.lua
 Commands\Confirmation.lua
 Core\DropDownStyle.lua
 Modules\Linkifier.lua

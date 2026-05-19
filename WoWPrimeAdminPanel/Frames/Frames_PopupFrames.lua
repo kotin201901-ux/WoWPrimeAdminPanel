@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,30 +12,30 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
 -- Initializing dynamic frames with LUA and FrameLib
 -- This script must be listed in the .toc after "Frames_LookupButtons.lua"
--- Also some variables are globally taken from AzerothAdmin.lua
+-- Also some variables are globally taken from WoWPrimeAdminPanel.lua
 
-function AzerothAdmin:CreatePopupFrames()
+function WoWPrimeAdminPanel:CreatePopupFrames()
   local transparency = {
-    bg = AzerothAdmin.db.profile.style.transparency.backgrounds,
-    btn = AzerothAdmin.db.profile.style.transparency.buttons,
-    frm = AzerothAdmin.db.profile.style.transparency.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.transparency.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.transparency.frames
   }
   local color = {
-    bg = AzerothAdmin.db.profile.style.color.backgrounds,
-    btn = AzerothAdmin.db.profile.style.color.buttons,
-    frm = AzerothAdmin.db.profile.style.color.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.color.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.color.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.color.frames
   }
 
   -- [[Popup Frame]]
   -- Calculate popup strata to be one level above main frame
   local strataOrder = {"BACKGROUND", "LOW", "MEDIUM", "HIGH", "DIALOG", "FULLSCREEN", "FULLSCREEN_DIALOG"}
-  local mainStrata = AzerothAdmin.db.profile.style.framestrata or "MEDIUM"
+  local mainStrata = WoWPrimeAdminPanel.db.profile.style.framestrata or "MEDIUM"
   local popupStrata = "DIALOG" -- Default fallback
   local popupFrameLevel = nil
 
@@ -1173,7 +1173,7 @@ function AzerothAdmin:CreatePopupFrames()
 end
 
 -- Setup Mail Popup UI
-function AzerothAdmin:SetupMailPopup(param)
+function WoWPrimeAdminPanel:SetupMailPopup(param)
   -- Initialize with tab 1 (Send Mail) as default
   local currentTab = param.tab or 1
 
@@ -1213,15 +1213,15 @@ function AzerothAdmin:SetupMailPopup(param)
   -- Setup tab click handlers (preserve message body when switching)
   ma_ptabbutton_1:SetScript("OnClick", function()
     param.body = ma_maileditbox:GetText()
-    AzerothAdmin:SwitchMailTab(1, param)
+    WoWPrimeAdminPanel:SwitchMailTab(1, param)
   end)
   ma_ptabbutton_2:SetScript("OnClick", function()
     param.body = ma_maileditbox:GetText()
-    AzerothAdmin:SwitchMailTab(2, param)
+    WoWPrimeAdminPanel:SwitchMailTab(2, param)
   end)
   ma_ptabbutton_3:SetScript("OnClick", function()
     param.body = ma_maileditbox:GetText()
-    AzerothAdmin:SwitchMailTab(3, param)
+    WoWPrimeAdminPanel:SwitchMailTab(3, param)
   end)
 
   -- Setup recipient field with auto-clear on focus
@@ -1297,7 +1297,7 @@ function AzerothAdmin:SetupMailPopup(param)
 end
 
 -- Switch between mail tabs
-function AzerothAdmin:SwitchMailTab(tabNum, param)
+function WoWPrimeAdminPanel:SwitchMailTab(tabNum, param)
   -- Store current tab for other functions to reference
   self.currentMailTab = tabNum
 
@@ -1338,8 +1338,8 @@ function AzerothAdmin:SwitchMailTab(tabNum, param)
   -- Tab 1: Send Mail (regular mail with message body)
   if tabNum == 1 then
     -- Setup text change handlers for byte count
-    ma_searcheditbox:SetScript("OnTextChanged", function() AzerothAdmin:UpdateMailBytesLeft() end)
-    ma_var1editbox:SetScript("OnTextChanged", function() AzerothAdmin:UpdateMailBytesLeft() end)
+    ma_searcheditbox:SetScript("OnTextChanged", function() WoWPrimeAdminPanel:UpdateMailBytesLeft() end)
+    ma_var1editbox:SetScript("OnTextChanged", function() WoWPrimeAdminPanel:UpdateMailBytesLeft() end)
 
     ma_lookupresulttext:SetText(Locale["ma_MailBytesLeft"].."246")
 
@@ -1351,7 +1351,7 @@ function AzerothAdmin:SwitchMailTab(tabNum, param)
     end
 
     ma_maileditbox:Show()
-    ma_maileditbox:SetScript("OnTextChanged", function() AzerothAdmin:UpdateMailBytesLeft() end)
+    ma_maileditbox:SetScript("OnTextChanged", function() WoWPrimeAdminPanel:UpdateMailBytesLeft() end)
 
     -- Enable send button for Tab 1
     if not ma_searchbutton.cooldownActive then
@@ -1400,15 +1400,15 @@ function AzerothAdmin:SwitchMailTab(tabNum, param)
       local slot = _G["ma_mailitemslot"..i]
       slot:Show()
       slot:SetScript("OnReceiveDrag", function()
-        AzerothAdmin:MailItemSlotReceiveDrag(i)
+        WoWPrimeAdminPanel:MailItemSlotReceiveDrag(i)
       end)
       slot:SetScript("OnClick", function(self, button)
         if button == "RightButton" then
           -- Right-click to clear slot
-          AzerothAdmin:MailItemSlotClear(i)
+          WoWPrimeAdminPanel:MailItemSlotClear(i)
         elseif IsShiftKeyDown() then
           -- Shift+click to drag from cursor
-          AzerothAdmin:MailItemSlotReceiveDrag(i)
+          WoWPrimeAdminPanel:MailItemSlotReceiveDrag(i)
         end
       end)
       slot:RegisterForClicks("LeftButtonUp", "RightButtonUp")

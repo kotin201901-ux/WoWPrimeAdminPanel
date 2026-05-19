@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,40 +12,40 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
 -- Initializing dynamic frames with LUA and FrameLib
--- This script must be listed in the .toc after "AzerothAdmin.lua"
--- Also some variables are globally taken from AzerothAdmin.lua
+-- This script must be listed in the .toc after "WoWPrimeAdminPanel.lua"
+-- Also some variables are globally taken from WoWPrimeAdminPanel.lua
 
-function AzerothAdmin:CreateMiniMenu()
+function WoWPrimeAdminPanel:CreateMiniMenu()
   -- Validate dependencies
   if not FrameLib then
-    error("AzerothAdmin: FrameLib not loaded")
+    error("WoWPrimeAdminPanel: FrameLib not loaded")
     return
   end
 
-  if not AzerothAdmin.db or not AzerothAdmin.db.profile or not AzerothAdmin.db.profile.style then
-    error("AzerothAdmin: Style database not initialized")
+  if not WoWPrimeAdminPanel.db or not WoWPrimeAdminPanel.db.profile or not WoWPrimeAdminPanel.db.profile.style then
+    error("WoWPrimeAdminPanel: Style database not initialized")
     return
   end
 
   if not ROOT_PATH then
-    error("AzerothAdmin: ROOT_PATH not defined")
+    error("WoWPrimeAdminPanel: ROOT_PATH not defined")
     return
   end
 
   local transparency = {
-    bg = AzerothAdmin.db.profile.style.transparency.backgrounds,
-    btn = AzerothAdmin.db.profile.style.transparency.buttons,
-    frm = AzerothAdmin.db.profile.style.transparency.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.transparency.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.transparency.frames
   }
   local color = {
-    bg = AzerothAdmin.db.profile.style.color.backgrounds,
-    btn = AzerothAdmin.db.profile.style.color.buttons,
-    frm = AzerothAdmin.db.profile.style.color.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.color.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.color.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.color.frames
   }
 
   -- [[ MiniMenu Elements ]]
@@ -104,7 +104,7 @@ function AzerothAdmin:CreateMiniMenu()
     self:SetPoint(side, UIParent, side, 0, yOffset)
 
     -- Save position to database (create new table or replace old string)
-    AzerothAdmin.db.profile.minimenuPosition = {
+    WoWPrimeAdminPanel.db.profile.minimenuPosition = {
       side = side,
       yOffset = yOffset
     }
@@ -343,35 +343,35 @@ function AzerothAdmin:CreateMiniMenu()
 
   -- Set up click handlers for menu buttons
   ma_mm_mainbutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("main")
+    WoWPrimeAdminPanel:ShowSection("main")
   end)
 
   ma_mm_charbutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("char")
+    WoWPrimeAdminPanel:ShowSection("char")
   end)
 
   ma_mm_npcbutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("npc")
+    WoWPrimeAdminPanel:ShowSection("npc")
   end)
 
   ma_mm_gobutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("go")
+    WoWPrimeAdminPanel:ShowSection("go")
   end)
 
   ma_mm_telebutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("tele")
+    WoWPrimeAdminPanel:ShowSection("tele")
   end)
 
   ma_mm_ticketbutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("ticket")
+    WoWPrimeAdminPanel:ShowSection("ticket")
   end)
 
   ma_mm_miscbutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("misc")
+    WoWPrimeAdminPanel:ShowSection("misc")
   end)
 
   ma_mm_serverbutton:SetScript("OnClick", function()
-    AzerothAdmin:ShowSection("server")
+    WoWPrimeAdminPanel:ShowSection("server")
   end)
 
   -- Make logo button draggable (propagates to parent)
@@ -406,7 +406,7 @@ function AzerothAdmin:CreateMiniMenu()
     ma_minibgframe:SetPoint(side, UIParent, side, 0, yOffset)
 
     -- Save position to database
-    AzerothAdmin.db.profile.minimenuPosition = {
+    WoWPrimeAdminPanel.db.profile.minimenuPosition = {
       side = side,
       yOffset = yOffset
     }
@@ -417,14 +417,14 @@ function AzerothAdmin:CreateMiniMenu()
     if IsShiftKeyDown() then
       ReloadUI()
     else
-      AzerothAdmin:ToggleMiniMenu()
+      WoWPrimeAdminPanel:ToggleMiniMenu()
     end
   end)
 
   -- Add tooltip to logo button
   ma_mm_logoframe:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
-    GameTooltip:SetText("AzerothAdmin Mini Menu", 1, 1, 1)
+    GameTooltip:SetText("WoWPrimeAdminPanel Mini Menu", 1, 1, 1)
     GameTooltip:AddLine("Left-click to toggle main menu", nil, nil, nil, true)
     GameTooltip:AddLine("Shift-click to reload UI", nil, nil, nil, true)
     GameTooltip:AddLine("Ctrl+drag to move menu", nil, nil, nil, true)
@@ -459,22 +459,22 @@ function AzerothAdmin:CreateMiniMenu()
   end)
 
   -- Restore saved position
-  if AzerothAdmin.db.profile.minimenuPosition then
+  if WoWPrimeAdminPanel.db.profile.minimenuPosition then
     ma_minibgframe:ClearAllPoints()
     -- Handle both old (string) and new (table) format
-    if type(AzerothAdmin.db.profile.minimenuPosition) == "string" then
+    if type(WoWPrimeAdminPanel.db.profile.minimenuPosition) == "string" then
       -- Old format: just "LEFT" or "RIGHT"
-      ma_minibgframe:SetPoint(AzerothAdmin.db.profile.minimenuPosition, UIParent, AzerothAdmin.db.profile.minimenuPosition, 0, 0)
+      ma_minibgframe:SetPoint(WoWPrimeAdminPanel.db.profile.minimenuPosition, UIParent, WoWPrimeAdminPanel.db.profile.minimenuPosition, 0, 0)
     else
       -- New format: table with side and yOffset
-      local side = AzerothAdmin.db.profile.minimenuPosition.side or "RIGHT"
-      local yOffset = AzerothAdmin.db.profile.minimenuPosition.yOffset or 0
+      local side = WoWPrimeAdminPanel.db.profile.minimenuPosition.side or "RIGHT"
+      local yOffset = WoWPrimeAdminPanel.db.profile.minimenuPosition.yOffset or 0
       ma_minibgframe:SetPoint(side, UIParent, side, 0, yOffset)
     end
   end
 
   -- Apply visibility based on showminimenu setting
-  if AzerothAdmin.db.profile.style.showminimenu == false then
+  if WoWPrimeAdminPanel.db.profile.style.showminimenu == false then
     FrameLib:HandleGroup("minimenu", function(frame) frame:Hide() end)
   end
 end

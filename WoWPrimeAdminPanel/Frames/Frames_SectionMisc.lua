@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,25 +12,25 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
 -- Initializing dynamic frames with LUA and FrameLib
 -- This script must be listed in the .toc after "Frames_SectionTicket.lua"
--- Also some variables are globally taken from AzerothAdmin.lua
+-- Also some variables are globally taken from WoWPrimeAdminPanel.lua
 
-function AzerothAdmin:CreateMiscSection()
+function WoWPrimeAdminPanel:CreateMiscSection()
   local transparency = {
-    bg = AzerothAdmin.db.profile.style.transparency.backgrounds,
-    btn = AzerothAdmin.db.profile.style.transparency.buttons,
-    frm = AzerothAdmin.db.profile.style.transparency.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.transparency.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.transparency.frames
   }
   local color = {
-    bg = AzerothAdmin.db.profile.style.color.backgrounds,
-    btn = AzerothAdmin.db.profile.style.color.buttons,
-    frm = AzerothAdmin.db.profile.style.color.frames,
-    linkifier = AzerothAdmin.db.profile.style.color.linkifier
+    bg = WoWPrimeAdminPanel.db.profile.style.color.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.color.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.color.frames,
+    linkifier = WoWPrimeAdminPanel.db.profile.style.color.linkifier
   }
 
   FrameLib:BuildButton({
@@ -440,7 +440,7 @@ function AzerothAdmin:CreateMiscSection()
     text = Locale["ma_UpdateChangesButton"]
   })
 
-  -- Weather dropdown (initialized in AzerothAdmin.lua)
+  -- Weather dropdown (initialized in WoWPrimeAdminPanel.lua)
   FrameLib:BuildFrame({
     name = "ma_weatherdropdown",
     group = "misc",

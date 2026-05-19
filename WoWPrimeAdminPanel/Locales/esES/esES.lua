@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_esES(). Change
@@ -82,13 +82,13 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "esES")
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "esES")
 if L then
   local translations = {
 --[[General]]
   --[[Tooltips]]
     ["tt_Default"]                    = "¡Mueve el cursor sobre un elemento para mostrar la información!",
-    ["tt_LanguageButton"]             = "Recargar AzerothAdmin y aplicar el idioma seleccionado.",
+    ["tt_LanguageButton"]             = "Recargar WoWPrimeAdminPanel y aplicar el idioma seleccionado.",
     ["tt_RefreshButton"]              = "Actualizar información del servidor.",
   --[[Control Labels]]
     ["ma_LanguageButton"]             = "Recargar IU",
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "Cerrar Ventana",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" }, -- Do not change these for locale
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" }, -- Do not change these for locale
     ["lang"]                          = "Español",
     ["realm"]                         = "|cFF00FF00Reino:|r "..GetCVar("realmName"),
     ["char"]                          = "|cFF00FF00Personaje:|r "..UnitName("player"),
@@ -127,7 +127,7 @@ if L then
   --[[Name]]
     ["tabmenu_Main"]                  = "GM",
   --[[Tooltips]]
-    ["tt_MainButton"]                 = "Mostrar/Ocultar ventana principal de AzerothAdmin.",
+    ["tt_MainButton"]                 = "Mostrar/Ocultar ventana principal de WoWPrimeAdminPanel.",
     ["tt_DisplayAccountLevel"]        = "Mostrar tu nivel de cuenta",
     ["tt_GMOnButton"]                 = "Activar tu modo GM.",
     ["tt_GMOffButton"]                = "Desactivar tu modo GM.",
@@ -734,11 +734,11 @@ if L then
     ["ma_WeatherRain"]                = "Lluvia",
     ["ma_WeatherSnow"]                = "Nieve",
     ["ma_WeatherSand"]                = "Arena",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r Configuración de transparencia guardada. Actualiza Cambios o Recarga la IU para aplicar.",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r Configuración de cadenas de búsqueda localizadas guardada. Actualiza Cambios o Recarga la IU para aplicar.",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r Configuración de minimenú guardada.",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r Configuración de descripciones emergentes guardada. Actualiza Cambios o Recarga la IU para aplicar.",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r Configuración de salida del chat guardada.",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r Configuración de transparencia guardada. Actualiza Cambios o Recarga la IU para aplicar.",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r Configuración de cadenas de búsqueda localizadas guardada. Actualiza Cambios o Recarga la IU para aplicar.",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r Configuración de minimenú guardada.",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r Configuración de descripciones emergentes guardada. Actualiza Cambios o Recarga la IU para aplicar.",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r Configuración de salida del chat guardada.",
 
 
 

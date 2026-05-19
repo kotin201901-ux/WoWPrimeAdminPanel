@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_ruRU(). Change
@@ -82,13 +82,13 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "ruRU")
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "ruRU")
 if L then
   local translations = {
 --[[General]]
   --[[Tooltips]]
     ["tt_Default"]                    = "Наведите курсор на элемент, чтобы увидеть подсказку!",
-    ["tt_LanguageButton"]             = "Перезагрузить AzerothAdmin и применить выбранный язык.",
+    ["tt_LanguageButton"]             = "Перезагрузить WoWPrimeAdminPanel и применить выбранный язык.",
     ["tt_RefreshButton"]              = "Обновить информацию о сервере.",
   --[[Control Labels]]
     ["ma_LanguageButton"]             = "Перезагрузить UI",
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "Закрыть окно",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" },
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" },
     ["lang"]                          = "Русский",
     ["realm"]                         = "|cFF00FF00Реалм:|r "..GetCVar("realmName"),
     ["char"]                          = "|cFF00FF00Персонаж:|r "..UnitName("player"),
@@ -127,7 +127,7 @@ if L then
   --[[Name]]
     ["tabmenu_Main"]                  = "GM",
   --[[Tooltips]]
-    ["tt_MainButton"]                 = "Переключить главное окно AzerothAdmin.",
+    ["tt_MainButton"]                 = "Переключить главное окно WoWPrimeAdminPanel.",
     ["tt_DisplayAccountLevel"]        = "Показать уровень вашего аккаунта",
     ["tt_GMOnButton"]                 = "Активировать GM-режим.",
     ["tt_GMOffButton"]                = "Деактивировать GM-режим.",
@@ -736,11 +736,11 @@ if L then
     ["ma_WeatherRain"]                = "Дождь",
     ["ma_WeatherSnow"]                = "Снег",
     ["ma_WeatherSand"]                = "Песок",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r Настройка прозрачности сохранена. Обновите изменения или перезагрузите UI для применения.",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r Настройка локализованных строк поиска сохранена. Обновите изменения или перезагрузите UI для применения.",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r Настройка минименю сохранена.",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r Настройка подсказок сохранена. Обновите изменения или перезагрузите UI для применения.",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r Настройка вывода чата сохранена.",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r Настройка прозрачности сохранена. Обновите изменения или перезагрузите UI для применения.",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r Настройка локализованных строк поиска сохранена. Обновите изменения или перезагрузите UI для применения.",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r Настройка минименю сохранена.",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r Настройка подсказок сохранена. Обновите изменения или перезагрузите UI для применения.",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r Настройка вывода чата сохранена.",
 
 
 

@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,25 +12,25 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
-AzerothAdminCommands = AzerothAdminCommands or {}
+WoWPrimeAdminPanelCommands = WoWPrimeAdminPanelCommands or {}
 
-function AzerothAdminCommands.ModelRotateLeft()
+function WoWPrimeAdminPanelCommands.ModelRotateLeft()
   ma_modelframe.rotation = ma_modelframe.rotation - 0.03
   ma_modelframe:SetRotation(ma_modelframe.rotation)
   PlaySound("igInventoryRotateCharacter")
 end
 
-function AzerothAdminCommands.ModelRotateRight()
+function WoWPrimeAdminPanelCommands.ModelRotateRight()
   ma_modelframe.rotation = ma_modelframe.rotation + 0.03
   ma_modelframe:SetRotation(ma_modelframe.rotation)
   PlaySound("igInventoryRotateCharacter")
 end
 
-function AzerothAdminCommands.AzerothAdminModelOnUpdate(frame, elapsedTime)
+function WoWPrimeAdminPanelCommands.WoWPrimeAdminPanelModelOnUpdate(frame, elapsedTime)
   if ( ma_modelrotatelbutton:GetButtonState() == "PUSHED" ) then
     frame.rotation = frame.rotation + (elapsedTime * 2 * PI * ROTATIONS_PER_SECOND)
     if ( frame.rotation < 0 ) then
@@ -47,17 +47,17 @@ function AzerothAdminCommands.AzerothAdminModelOnUpdate(frame, elapsedTime)
   end
 end
 
-function AzerothAdminCommands.InitModelFrame()
-  ma_modelframe:SetScript("OnUpdate", function(self, elapsed) AzerothAdminCommands.AzerothAdminModelOnUpdate(self, elapsed) end)
+function WoWPrimeAdminPanelCommands.InitModelFrame()
+  ma_modelframe:SetScript("OnUpdate", function(self, elapsed) WoWPrimeAdminPanelCommands.WoWPrimeAdminPanelModelOnUpdate(self, elapsed) end)
   ma_modelframe.rotation = 0.61;
   ma_modelframe:SetRotation(ma_modelframe.rotation)
   ma_modelframe:SetUnit("player")
 
 end
 
-function AzerothAdminCommands.ModelChanged()
+function WoWPrimeAdminPanelCommands.ModelChanged()
   if not ma_modelframe then return end
-  if not AzerothAdmin:Selection("none") then
+  if not WoWPrimeAdminPanel:Selection("none") then
     ma_modelframe:SetUnit("target")
   else
     ma_modelframe:SetUnit("player")
@@ -65,202 +65,202 @@ function AzerothAdminCommands.ModelChanged()
   ma_modelframe:RefreshUnit()
 end
 
-function AzerothAdminCommands.RevivePlayer()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.RevivePlayer()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".revive")
+    WoWPrimeAdminPanel:ChatMsg(".revive")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.SavePlayer()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.SavePlayer()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".save")
+    WoWPrimeAdminPanel:ChatMsg(".save")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.KickPlayer()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.KickPlayer()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".kick")
+    WoWPrimeAdminPanel:ChatMsg(".kick")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.Cooldown()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.Cooldown()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".cooldown")
+    WoWPrimeAdminPanel:ChatMsg(".cooldown")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.ShowGUID()
+function WoWPrimeAdminPanelCommands.ShowGUID()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".guid")
+    WoWPrimeAdminPanel:ChatMsg(".guid")
 end
 
-function AzerothAdminCommands.Pinfo()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.Pinfo()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".pinfo")
+    WoWPrimeAdminPanel:ChatMsg(".pinfo")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.Distance()
+function WoWPrimeAdminPanelCommands.Distance()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".distance")
+    WoWPrimeAdminPanel:ChatMsg(".distance")
 end
 
-function AzerothAdminCommands.Recall()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.Recall()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".recall")
+    WoWPrimeAdminPanel:ChatMsg(".recall")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.Demorph()
+function WoWPrimeAdminPanelCommands.Demorph()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".morph reset")
+    WoWPrimeAdminPanel:ChatMsg(".morph reset")
 end
 
-function AzerothAdminCommands.GPS()
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.GPS()
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".gps")
+    WoWPrimeAdminPanel:ChatMsg(".gps")
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.LearnSpell(value, state)
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.LearnSpell(value, state)
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
     local class = UnitClass("target") or UnitClass("player")
     if type(value) == "string" then
       if value == "all" then
-        AzerothAdmin:ChatMsg(".learn all")
+        WoWPrimeAdminPanel:ChatMsg(".learn all")
       elseif value == "all_crafts" then
-        AzerothAdmin:ChatMsg(".learn all crafts")
+        WoWPrimeAdminPanel:ChatMsg(".learn all crafts")
       elseif value == "all_default" then
-        AzerothAdmin:ChatMsg(".learn all default")
+        WoWPrimeAdminPanel:ChatMsg(".learn all default")
       elseif value == "all_gm" then
-        AzerothAdmin:ChatMsg(".learn all gm")
+        WoWPrimeAdminPanel:ChatMsg(".learn all gm")
       elseif value == "all_lang" then
-        AzerothAdmin:ChatMsg(".learn all lang")
+        WoWPrimeAdminPanel:ChatMsg(".learn all lang")
       elseif value == "all_myclass" then
-        AzerothAdmin:ChatMsg(".learn all my class")
+        WoWPrimeAdminPanel:ChatMsg(".learn all my class")
       elseif value == "all_mypettalents" then
-        AzerothAdmin:ChatMsg(".learn all my pettalents")
+        WoWPrimeAdminPanel:ChatMsg(".learn all my pettalents")
       elseif value == "all_myspells" then
-        AzerothAdmin:ChatMsg(".learn all my spells")
+        WoWPrimeAdminPanel:ChatMsg(".learn all my spells")
       elseif value == "all_mytalents" then
-        AzerothAdmin:ChatMsg(".learn all my talents")
+        WoWPrimeAdminPanel:ChatMsg(".learn all my talents")
       elseif value == "all_recipes_alchemy" then
-        AzerothAdmin:ChatMsg(".learn all recipes alchemy")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes alchemy")
       elseif value == "all_recipes_blacksmithing" then
-        AzerothAdmin:ChatMsg(".learn all recipes blacksmithing")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes blacksmithing")
       elseif value == "all_recipes_cooking" then
-        AzerothAdmin:ChatMsg(".learn all recipes cooking")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes cooking")
       elseif value == "all_recipes_enchanting" then
-        AzerothAdmin:ChatMsg(".learn all recipes enchanting")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes enchanting")
       elseif value == "all_recipes_engineering" then
-        AzerothAdmin:ChatMsg(".learn all recipes engineering")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes engineering")
       elseif value == "all_recipes_firstaid" then
-        AzerothAdmin:ChatMsg(".learn all recipes firstaid")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes firstaid")
       elseif value == "all_recipes_inscription" then
-        AzerothAdmin:ChatMsg(".learn all recipes inscription")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes inscription")
       elseif value == "all_recipes_jewelcrafting" then
-        AzerothAdmin:ChatMsg(".learn all recipes jewelcrafting")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes jewelcrafting")
       elseif value == "all_recipes_leatherworking" then
-        AzerothAdmin:ChatMsg(".learn all recipes leatherworking")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes leatherworking")
       elseif value == "all_recipes_tailoring" then
-        AzerothAdmin:ChatMsg(".learn all recipes tailoring")
+        WoWPrimeAdminPanel:ChatMsg(".learn all recipes tailoring")
       else
-        AzerothAdmin:ChatMsg(".learn "..value)
+        WoWPrimeAdminPanel:ChatMsg(".learn "..value)
       end
     elseif type(value) == "table" then
       for k,v in pairs(value) do
-        AzerothAdmin:ChatMsg(".learn "..v)
+        WoWPrimeAdminPanel:ChatMsg(".learn "..v)
       end
     end
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.Modify(case, value)
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.Modify(case, value)
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
     if case == "money" then
-      AzerothAdmin:ChatMsg(".modify money "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify money "..value)
     elseif case == "levelup" then
-      AzerothAdmin:ChatMsg(".levelup "..value)
+      WoWPrimeAdminPanel:ChatMsg(".levelup "..value)
     elseif case == "leveldown" then
-      AzerothAdmin:ChatMsg(".levelup "..(-value))
+      WoWPrimeAdminPanel:ChatMsg(".levelup "..(-value))
     elseif case == "energy" then
-      AzerothAdmin:ChatMsg(".modify energy "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify energy "..value)
     elseif case == "rage" then
-      AzerothAdmin:ChatMsg(".modify rage "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify rage "..value)
     elseif case == "health" then
-      AzerothAdmin:ChatMsg(".modify hp "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify hp "..value)
     elseif case == "mana" then
-      AzerothAdmin:ChatMsg(".modify mana "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify mana "..value)
     elseif case == "aspeed" then
-      AzerothAdmin:ChatMsg(".modify speed all "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify speed all "..value)
     elseif case == "arena" then
-      AzerothAdmin:ChatMsg(".modify arena "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify arena "..value)
     elseif case == "bwalk" then
-      AzerothAdmin:ChatMsg(".modify speed backwalk "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify speed backwalk "..value)
     elseif case == "drunk" then
-      AzerothAdmin:ChatMsg(".modify drunk "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify drunk "..value)
     elseif case == "fly" then
-      AzerothAdmin:ChatMsg(".modify speed fly "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify speed fly "..value)
     elseif case == "gender" then
-      AzerothAdmin:ChatMsg(".modify gender "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify gender "..value)
     elseif case == "honor" then
-      AzerothAdmin:ChatMsg(".modify honor "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify honor "..value)
     elseif case == "mount" then
-      AzerothAdmin:ChatMsg(".modify mount "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify mount "..value)
     elseif case == "phase" then
-      AzerothAdmin:ChatMsg(".modify phase "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify phase "..value)
     elseif case == "runicpower" then
-      AzerothAdmin:ChatMsg(".modify runicpower "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify runicpower "..value)
     elseif case == "speed" then
-      AzerothAdmin:ChatMsg(".modify speed walk "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify speed walk "..value)
     elseif case == "standstate" then
-      AzerothAdmin:ChatMsg(".modify standstate "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify standstate "..value)
     elseif case == "swim" then
-      AzerothAdmin:ChatMsg(".modify speed swim "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify speed swim "..value)
     elseif case == "tp" then
-      AzerothAdmin:ChatMsg(".modify talentpoints "..value)
+      WoWPrimeAdminPanel:ChatMsg(".modify talentpoints "..value)
     end
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
-function AzerothAdminCommands.Reset(value)
-  if AzerothAdmin:Selection("player") or AzerothAdmin:Selection("self") or AzerothAdmin:Selection("none") then
+function WoWPrimeAdminPanelCommands.Reset(value)
+  if WoWPrimeAdminPanel:Selection("player") or WoWPrimeAdminPanel:Selection("self") or WoWPrimeAdminPanel:Selection("none") then
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".reset "..value.." "..player)
+    WoWPrimeAdminPanel:ChatMsg(".reset "..value.." "..player)
   else
-    AzerothAdmin:Print(Locale["selectionerror1"])
+    WoWPrimeAdminPanel:Print(Locale["selectionerror1"])
   end
 end
 
   -- LEARN LANG
-function AzerothAdminCommands.LearnDropDownInitialize()
+function WoWPrimeAdminPanelCommands.LearnDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
     local buttons = {
@@ -295,7 +295,7 @@ function AzerothAdminCommands.LearnDropDownInitialize()
 end
 
   -- MODIFY
-function AzerothAdminCommands.ModifyDropDownInitialize()
+function WoWPrimeAdminPanelCommands.ModifyDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
     local buttons = {
@@ -333,7 +333,7 @@ function AzerothAdminCommands.ModifyDropDownInitialize()
 end
 
   -- RESET
-function AzerothAdminCommands.ResetDropDownInitialize()
+function WoWPrimeAdminPanelCommands.ResetDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
     local buttons = {
@@ -355,7 +355,7 @@ function AzerothAdminCommands.ResetDropDownInitialize()
 end
 
   -- BAN TYPE
-function AzerothAdminCommands.BanDropDownInitialize()
+function WoWPrimeAdminPanelCommands.BanDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
     local buttons = {
@@ -375,14 +375,14 @@ function AzerothAdminCommands.BanDropDownInitialize()
     end
 end
 
-function AzerothAdminCommands.CharModelZoomIn()
+function WoWPrimeAdminPanelCommands.CharModelZoomIn()
     ma_modelframe:SetCamera(0)
     --ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() + .1)
     --ma_modelframe:SetPosition(1,ma_modelframe:GetModelScale()*3,0)
     --ma_modelframe:RefreshUnit()
 end
 
-function AzerothAdminCommands.CharModelZoomOut()
+function WoWPrimeAdminPanelCommands.CharModelZoomOut()
     ma_modelframe:SetCamera(1)
     ma_modelframe:RefreshUnit()
    -- ma_modelframe:SetCamera(2)
@@ -391,245 +391,245 @@ function AzerothAdminCommands.CharModelZoomOut()
     --ma_modelframe:RefreshUnit()
 end
 
-function AzerothAdminCommands.CharBindSight()
+function WoWPrimeAdminPanelCommands.CharBindSight()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".bindsight")
+    WoWPrimeAdminPanel:ChatMsg(".bindsight")
 end
 
-function AzerothAdminCommands.CharUnBindSight()
+function WoWPrimeAdminPanelCommands.CharUnBindSight()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".unbindsight")
+    WoWPrimeAdminPanel:ChatMsg(".unbindsight")
 end
 
-function AzerothAdminCommands.CharRename()
+function WoWPrimeAdminPanelCommands.CharRename()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".character rename")
+    WoWPrimeAdminPanel:ChatMsg(".character rename")
 end
 
-function AzerothAdminCommands.CharCustomize()
+function WoWPrimeAdminPanelCommands.CharCustomize()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".character customize")
+    WoWPrimeAdminPanel:ChatMsg(".character customize")
 end
 
-function AzerothAdminCommands.CharChangeRace()
+function WoWPrimeAdminPanelCommands.CharChangeRace()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".character changerace")
+    WoWPrimeAdminPanel:ChatMsg(".character changerace")
 end
 
-function AzerothAdminCommands.CharChangeFaction()
+function WoWPrimeAdminPanelCommands.CharChangeFaction()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".character changefaction")
+    WoWPrimeAdminPanel:ChatMsg(".character changefaction")
 end
 
-function AzerothAdminCommands.CharCombatStop()
+function WoWPrimeAdminPanelCommands.CharCombatStop()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".combatstop")
+    WoWPrimeAdminPanel:ChatMsg(".combatstop")
 end
 
-function AzerothAdminCommands.CharMaxSkill()
+function WoWPrimeAdminPanelCommands.CharMaxSkill()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".maxskill")
+    WoWPrimeAdminPanel:ChatMsg(".maxskill")
 end
 
-function AzerothAdminCommands.CharFreeze()
+function WoWPrimeAdminPanelCommands.CharFreeze()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".freeze")
+    WoWPrimeAdminPanel:ChatMsg(".freeze")
 end
 
-function AzerothAdminCommands.CharUnFreeze()
+function WoWPrimeAdminPanelCommands.CharUnFreeze()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".unfreeze")
+    WoWPrimeAdminPanel:ChatMsg(".unfreeze")
 end
 
-function AzerothAdminCommands.CharListDeleted()
+function WoWPrimeAdminPanelCommands.CharListDeleted()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".character deleted list")
+    WoWPrimeAdminPanel:ChatMsg(".character deleted list")
 end
 
-function AzerothAdminCommands.CharDeletedRestore()
+function WoWPrimeAdminPanelCommands.CharDeletedRestore()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".character deleted restore "..cname)
+    WoWPrimeAdminPanel:ChatMsg(".character deleted restore "..cname)
 end
 
-function AzerothAdminCommands.CharPossess()
+function WoWPrimeAdminPanelCommands.CharPossess()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".possess")
+    WoWPrimeAdminPanel:ChatMsg(".possess")
 end
 
-function AzerothAdminCommands.CharUnPossess()
+function WoWPrimeAdminPanelCommands.CharUnPossess()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".unpossess")
+    WoWPrimeAdminPanel:ChatMsg(".unpossess")
 end
 
-function AzerothAdminCommands.CharRecall()
+function WoWPrimeAdminPanelCommands.CharRecall()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".recall")
+    WoWPrimeAdminPanel:ChatMsg(".recall")
 end
 
-function AzerothAdminCommands.CharRepair()
+function WoWPrimeAdminPanelCommands.CharRepair()
     local player = UnitName("target") or UnitName("player")
-    AzerothAdmin:ChatMsg(".gear repair")
+    WoWPrimeAdminPanel:ChatMsg(".gear repair")
 end
 
-function AzerothAdminCommands.BanButton(bantype)
+function WoWPrimeAdminPanelCommands.BanButton(bantype)
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".ban "..bantype.." "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".ban "..bantype.." "..cname)
 
 end
 
-function AzerothAdminCommands.GoNameButton()
+function WoWPrimeAdminPanelCommands.GoNameButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".appear "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".appear "..cname)
 
 end
 
-function AzerothAdminCommands.CreateGuildButton()
+function WoWPrimeAdminPanelCommands.CreateGuildButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".guild create "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".guild create "..cname)
 
 end
 
-function AzerothAdminCommands.BanInfoButton(bantype)
+function WoWPrimeAdminPanelCommands.BanInfoButton(bantype)
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".baninfo "..bantype.." "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".baninfo "..bantype.." "..cname)
 
 end
 
-function AzerothAdminCommands.GroupGoButton()
+function WoWPrimeAdminPanelCommands.GroupGoButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".groupsummon "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".groupsummon "..cname)
 
 end
 
-function AzerothAdminCommands.GuildInviteButton()
+function WoWPrimeAdminPanelCommands.GuildInviteButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".guild invite "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".guild invite "..cname)
 
 end
 
-function AzerothAdminCommands.BanlistButton(bantype)
+function WoWPrimeAdminPanelCommands.BanlistButton(bantype)
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".banlist "..bantype.." "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".banlist "..bantype.." "..cname)
 
 end
 
-function AzerothAdminCommands.NameGoButton()
+function WoWPrimeAdminPanelCommands.NameGoButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".summon "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".summon "..cname)
 
 end
 
-function AzerothAdminCommands.GuildRankButton()
+function WoWPrimeAdminPanelCommands.GuildRankButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".guild rank "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".guild rank "..cname)
 
 end
 
-function AzerothAdminCommands.TeleGroupButton()
+function WoWPrimeAdminPanelCommands.TeleGroupButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".tele group "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".tele group "..cname)
 
 end
 
-function AzerothAdminCommands.UnBanButton(bantype)
+function WoWPrimeAdminPanelCommands.UnBanButton(bantype)
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".unban "..bantype.." "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".unban "..bantype.." "..cname)
 
 end
 
-function AzerothAdminCommands.GuildDeleteButton()
+function WoWPrimeAdminPanelCommands.GuildDeleteButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".guild delete "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".guild delete "..cname)
 
 end
 
-function AzerothAdminCommands.GuildUninviteButton()
+function WoWPrimeAdminPanelCommands.GuildUninviteButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".guild uninvite "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".guild uninvite "..cname)
 
 end
 
-function AzerothAdminCommands.TeleNameButton()
+function WoWPrimeAdminPanelCommands.TeleNameButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".tele name "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".tele name "..cname)
 
 end
 
-function AzerothAdminCommands.MuteButton()
+function WoWPrimeAdminPanelCommands.MuteButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".mute "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".mute "..cname)
 
 end
 
-function AzerothAdminCommands.CharMorphButton()
+function WoWPrimeAdminPanelCommands.CharMorphButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".modify morph "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".modify morph "..cname)
 
 end
 
-function AzerothAdminCommands.CharAuraButton()
+function WoWPrimeAdminPanelCommands.CharAuraButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".aura "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".aura "..cname)
 
 end
 
-function AzerothAdminCommands.CharUnAuraButton()
+function WoWPrimeAdminPanelCommands.CharUnAuraButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".unaura "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".unaura "..cname)
 
 end
 
-function AzerothAdminCommands.JailA()
+function WoWPrimeAdminPanelCommands.JailA()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".tele name "..cname.." ma_AllianceJail")
-    AzerothAdmin:ChatMsg(".notify "..cname.." has been found guilty and jailed.")
+    WoWPrimeAdminPanel:ChatMsg(".tele name "..cname.." ma_AllianceJail")
+    WoWPrimeAdminPanel:ChatMsg(".notify "..cname.." has been found guilty and jailed.")
 end
 
-function AzerothAdminCommands.JailH()
+function WoWPrimeAdminPanelCommands.JailH()
     local cname = ma_charactertarget:GetText()
     --self:ChatMsg("Selected "..cname)
-    AzerothAdmin:ChatMsg(".tele name "..cname.." ma_HordeJail")
-    AzerothAdmin:ChatMsg(".notify "..cname.." has been found guilty and jailed.")
+    WoWPrimeAdminPanel:ChatMsg(".tele name "..cname.." ma_HordeJail")
+    WoWPrimeAdminPanel:ChatMsg(".notify "..cname.." has been found guilty and jailed.")
 end
 
-function AzerothAdminCommands.UnJail()
+function WoWPrimeAdminPanelCommands.UnJail()
     local cname = ma_charactertarget:GetText()
-    AzerothAdmin:ChatMsg(".recall "..cname)
-    AzerothAdmin:ChatMsg(".notify "..cname.." has been pardoned and released from jail.")
+    WoWPrimeAdminPanel:ChatMsg(".recall "..cname)
+    WoWPrimeAdminPanel:ChatMsg(".notify "..cname.." has been pardoned and released from jail.")
 end
 
-function AzerothAdminCommands.UnMuteButton()
+function WoWPrimeAdminPanelCommands.UnMuteButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".unmute "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".unmute "..cname)
 
 end
 
-function AzerothAdminCommands.DamageButton ()
+function WoWPrimeAdminPanelCommands.DamageButton ()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".damage "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".damage "..cname)
 
 end
 
-function AzerothAdminCommands.HideAreaButton()
+function WoWPrimeAdminPanelCommands.HideAreaButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".hidearea "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".hidearea "..cname)
 end
 
-function AzerothAdminCommands.ShowAreaButton()
+function WoWPrimeAdminPanelCommands.ShowAreaButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".showarea "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".showarea "..cname)
 end
 
-function AzerothAdminCommands.CheckBagButton()
+function WoWPrimeAdminPanelCommands.CheckBagButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".character check bag "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".character check bag "..cname)
 end
 
-function AzerothAdminCommands.CheckProfessionButton()
+function WoWPrimeAdminPanelCommands.CheckProfessionButton()
   local cname = ma_charactertarget:GetText()
-  AzerothAdmin:ChatMsg(".character check profession "..cname)
+  WoWPrimeAdminPanel:ChatMsg(".character check profession "..cname)
 end
 
-function AzerothAdminCommands.CharClearParams()
+function WoWPrimeAdminPanelCommands.CharClearParams()
   ma_charactertarget:SetText("")
 end

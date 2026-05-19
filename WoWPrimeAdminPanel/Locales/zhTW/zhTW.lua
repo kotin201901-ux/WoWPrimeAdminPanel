@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_zhTW(). Change
@@ -82,13 +82,13 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "zhTW")
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "zhTW")
 if L then
   local translations = {
 --[[General]]
   --[[Tooltips]]
     ["tt_Default"]                    = "將游標移動到元素上以切換工具提示！",
-    ["tt_LanguageButton"]             = "重新載入AzerothAdmin並套用所選語言。",
+    ["tt_LanguageButton"]             = "重新載入WoWPrimeAdminPanel並套用所選語言。",
     ["tt_RefreshButton"]              = "重新整理伺服器資訊。",
   --[[Control Labels]]
     ["ma_LanguageButton"]             = "重載介面",
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "關閉視窗",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" },
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" },
     ["lang"]                          = "繁體中文",
     ["realm"]                         = "|cFF00FF00伺服器:|r "..GetCVar("realmName"),
     ["char"]                          = "|cFF00FF00角色:|r "..UnitName("player"),
@@ -127,7 +127,7 @@ if L then
   --[[Name]]
     ["tabmenu_Main"]                  = "GM",
   --[[Tooltips]]
-    ["tt_MainButton"]                 = "切換AzerothAdmin主框架。",
+    ["tt_MainButton"]                 = "切換WoWPrimeAdminPanel主框架。",
     ["tt_DisplayAccountLevel"]        = "顯示你的帳號等級",
     ["tt_GMOnButton"]                 = "啟動你的GM模式。",
     ["tt_GMOffButton"]                = "關閉你的GM模式。",
@@ -736,11 +736,11 @@ if L then
     ["ma_WeatherRain"]                = "雨",
     ["ma_WeatherSnow"]                = "雪",
     ["ma_WeatherSand"]                = "沙塵",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r 透明度設定已儲存。更新更改或重新載入介面以套用。",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r 本地化搜尋字串設定已儲存。更新更改或重新載入介面以套用。",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r 迷你選單設定已儲存。",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r 工具提示設定已儲存。更新更改或重新載入介面以套用。",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r 聊天輸出設定已儲存。",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r 透明度設定已儲存。更新更改或重新載入介面以套用。",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r 本地化搜尋字串設定已儲存。更新更改或重新載入介面以套用。",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r 迷你選單設定已儲存。",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r 工具提示設定已儲存。更新更改或重新載入介面以套用。",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r 聊天輸出設定已儲存。",
 
 
 

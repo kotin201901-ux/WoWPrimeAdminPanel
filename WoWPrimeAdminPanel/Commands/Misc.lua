@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,27 +12,27 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
-AzerothAdminCommands = AzerothAdminCommands or {}
+WoWPrimeAdminPanelCommands = WoWPrimeAdminPanelCommands or {}
 
-function AzerothAdminCommands.ToggleTransparencyCheckbox()
+function WoWPrimeAdminPanelCommands.ToggleTransparencyCheckbox()
   -- Get the checkbox state and convert to boolean (checkbox returns 1 or nil, not true/false)
   local isChecked = ma_checktransparencybutton:GetChecked() and true or false
 
   -- Save the setting
   if isChecked then
-    AzerothAdmin.db.profile.style.transparency.backgrounds = 0.5
+    WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds = 0.5
   else
-    AzerothAdmin.db.profile.style.transparency.backgrounds = 1.0
+    WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds = 1.0
   end
 
   -- Apply immediately to background frames
   FrameLib:HandleGroup("bg", function(frame)
     if frame.texture then
-      frame.texture:SetAlpha(AzerothAdmin.db.profile.style.transparency.backgrounds)
+      frame.texture:SetAlpha(WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds)
     end
   end)
 
@@ -40,23 +40,23 @@ function AzerothAdminCommands.ToggleTransparencyCheckbox()
   print(Locale["msg_transparency_saved"])
 end
 
-function AzerothAdminCommands.ToggleLocalSearchStringsCheckbox()
+function WoWPrimeAdminPanelCommands.ToggleLocalSearchStringsCheckbox()
   -- Get the checkbox state and convert to boolean (checkbox returns 1 or nil, not true/false)
   local isChecked = ma_checklocalsearchstringsbutton:GetChecked() and true or false
 
   -- Save the setting immediately
-  AzerothAdmin.db.profile.localesearchstring = isChecked
+  WoWPrimeAdminPanel.db.profile.localesearchstring = isChecked
 
   -- Inform user that a UI reload is needed
   print(Locale["msg_localsearch_saved"])
 end
 
-function AzerothAdminCommands.ToggleMinimenuCheckbox()
+function WoWPrimeAdminPanelCommands.ToggleMinimenuCheckbox()
   -- Get the checkbox state and convert to boolean (checkbox returns 1 or nil, not true/false)
   local isChecked = ma_showminimenubutton:GetChecked() and true or false
 
   -- Save the setting
-  AzerothAdmin.db.profile.style.showminimenu = isChecked
+  WoWPrimeAdminPanel.db.profile.style.showminimenu = isChecked
 
   -- Toggle visibility immediately
   if isChecked then
@@ -68,53 +68,53 @@ function AzerothAdminCommands.ToggleMinimenuCheckbox()
   print(Locale["msg_minimenu_saved"])
 end
 
-function AzerothAdminCommands.ToggleTooltipsCheckbox()
+function WoWPrimeAdminPanelCommands.ToggleTooltipsCheckbox()
   -- Get the checkbox state and convert to boolean (checkbox returns 1 or nil, not true/false)
   local isChecked = ma_showtooltipsbutton:GetChecked() and true or false
 
   -- Save the setting immediately
-  AzerothAdmin.db.profile.style.showtooltips = isChecked
+  WoWPrimeAdminPanel.db.profile.style.showtooltips = isChecked
 
   -- Inform user that a UI reload is needed
   print(Locale["msg_tooltip_saved"])
 end
 
-function AzerothAdminCommands.ToggleShowChatOutputCheckbox()
+function WoWPrimeAdminPanelCommands.ToggleShowChatOutputCheckbox()
   -- Get the checkbox state and convert to boolean (checkbox returns 1 or nil, not true/false)
   local isChecked = ma_showchatoutputbutton:GetChecked() and true or false
 
   -- Save the setting immediately
-  AzerothAdmin.db.profile.style.showchat = isChecked
+  WoWPrimeAdminPanel.db.profile.style.showchat = isChecked
 
   print(Locale["msg_chatoutput_saved"])
 end
 
-function AzerothAdminCommands.ToggleMinimapButtonCheckbox()
+function WoWPrimeAdminPanelCommands.ToggleMinimapButtonCheckbox()
   -- Get the checkbox state and convert to boolean (checkbox returns 1 or nil, not true/false)
   local isChecked = ma_showminimapbutton:GetChecked() and true or false
 
   -- Initialize minimap table if it doesn't exist
-  if not AzerothAdminDb.minimap then
-    AzerothAdminDb.minimap = {}
+  if not WoWPrimeAdminPanelDb.minimap then
+    WoWPrimeAdminPanelDb.minimap = {}
   end
 
   -- Save the setting (inverted: checked = show, unchecked = hide)
-  AzerothAdminDb.minimap.hide = not isChecked
+  WoWPrimeAdminPanelDb.minimap.hide = not isChecked
 
   -- Apply the setting immediately
   local icon = LibStub and LibStub("LibDBIcon-1.0", true)
-  if icon and icon:IsRegistered("AzerothAdmin") then
+  if icon and icon:IsRegistered("WoWPrimeAdminPanel") then
     -- Using LibDBIcon
     if isChecked then
-      icon:Show("AzerothAdmin")
+      icon:Show("WoWPrimeAdminPanel")
       --print("Minimap button shown")
     else
-      icon:Hide("AzerothAdmin")
+      icon:Hide("WoWPrimeAdminPanel")
       --print("Minimap button hidden")
     end
   else
     -- Fallback for manual minimap button
-    local minimapButton = _G["AzerothAdminMinimapButton"]
+    local minimapButton = _G["WoWPrimeAdminPanelMinimapButton"]
     if minimapButton then
       if isChecked then
         minimapButton:Show()
@@ -127,28 +127,28 @@ function AzerothAdminCommands.ToggleMinimapButtonCheckbox()
   end
 end
 
-function AzerothAdminCommands.UpdateChanges()
-  if AzerothAdmin.db.profile.style.color.buffer.backgrounds then
-    AzerothAdmin.db.profile.style.color.backgrounds = AzerothAdmin.db.profile.style.color.buffer.backgrounds
+function WoWPrimeAdminPanelCommands.UpdateChanges()
+  if WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds then
+    WoWPrimeAdminPanel.db.profile.style.color.backgrounds = WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds
   end
-  if AzerothAdmin.db.profile.style.color.buffer.frames then
-    AzerothAdmin.db.profile.style.color.frames = AzerothAdmin.db.profile.style.color.buffer.frames
+  if WoWPrimeAdminPanel.db.profile.style.color.buffer.frames then
+    WoWPrimeAdminPanel.db.profile.style.color.frames = WoWPrimeAdminPanel.db.profile.style.color.buffer.frames
   end
-  if AzerothAdmin.db.profile.style.color.buffer.buttons then
-    AzerothAdmin.db.profile.style.color.buttons = AzerothAdmin.db.profile.style.color.buffer.buttons
+  if WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons then
+    WoWPrimeAdminPanel.db.profile.style.color.buttons = WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons
   end
-  if AzerothAdmin.db.profile.style.color.buffer.linkifier then
-    AzerothAdmin.db.profile.style.color.linkifier = AzerothAdmin.db.profile.style.color.buffer.linkifier
+  if WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier then
+    WoWPrimeAdminPanel.db.profile.style.color.linkifier = WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier
   end
   if ma_checktransparencybutton:GetChecked() then
-    AzerothAdmin.db.profile.style.transparency.backgrounds = 0.5
+    WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds = 0.5
   else
-    AzerothAdmin.db.profile.style.transparency.backgrounds = 1.0
+    WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds = 1.0
   end
-  AzerothAdmin.db.profile.localesearchstring = ma_checklocalsearchstringsbutton:GetChecked() and true or false
-  AzerothAdmin.db.profile.style.showtooltips = ma_showtooltipsbutton:GetChecked() and true or false
-  AzerothAdmin.db.profile.style.showchat = ma_showchatoutputbutton:GetChecked() and true or false
-  AzerothAdmin.db.profile.style.showminimenu = ma_showminimenubutton:GetChecked() and true or false
+  WoWPrimeAdminPanel.db.profile.localesearchstring = ma_checklocalsearchstringsbutton:GetChecked() and true or false
+  WoWPrimeAdminPanel.db.profile.style.showtooltips = ma_showtooltipsbutton:GetChecked() and true or false
+  WoWPrimeAdminPanel.db.profile.style.showchat = ma_showchatoutputbutton:GetChecked() and true or false
+  WoWPrimeAdminPanel.db.profile.style.showminimenu = ma_showminimenubutton:GetChecked() and true or false
   ReloadUI()
 end
 
@@ -171,7 +171,7 @@ local function ProtectColorPickerFromElvUI()
   end
 end
 
-function AzerothAdminCommands.ShowColorPicker(t)
+function WoWPrimeAdminPanelCommands.ShowColorPicker(t)
   -- Hook the ColorPickerFrame's OnShow to protect against ElvUI
   if not ColorPickerFrame.elvUIProtectionHooked then
     ColorPickerFrame:HookScript("OnShow", function()
@@ -185,14 +185,14 @@ function AzerothAdminCommands.ShowColorPicker(t)
 
   if t == "bg" then
     local r,g,b
-    if AzerothAdmin.db.profile.style.color.buffer.backgrounds then
-      r = AzerothAdmin.db.profile.style.color.buffer.backgrounds.r
-      g = AzerothAdmin.db.profile.style.color.buffer.backgrounds.g
-      b = AzerothAdmin.db.profile.style.color.buffer.backgrounds.b
+    if WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds then
+      r = WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds.b
     else
-      r = AzerothAdmin.db.profile.style.color.backgrounds.r
-      g = AzerothAdmin.db.profile.style.color.backgrounds.g
-      b = AzerothAdmin.db.profile.style.color.backgrounds.b
+      r = WoWPrimeAdminPanel.db.profile.style.color.backgrounds.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.backgrounds.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.backgrounds.b
     end
     ColorPickerFrame.cancelFunc = function(prev)
       local r,g,b = unpack(prev)
@@ -201,23 +201,23 @@ function AzerothAdminCommands.ShowColorPicker(t)
     ColorPickerFrame.func = function()
       local r,g,b = ColorPickerFrame:GetColorRGB()
       ma_bgcolorshowbutton_texture:SetTexture(r,g,b)
-      AzerothAdmin.db.profile.style.color.buffer.backgrounds = {}
-      AzerothAdmin.db.profile.style.color.buffer.backgrounds.r = r
-      AzerothAdmin.db.profile.style.color.buffer.backgrounds.g = g
-      AzerothAdmin.db.profile.style.color.buffer.backgrounds.b = b
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds = {}
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds.r = r
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds.g = g
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.backgrounds.b = b
     end
     ColorPickerFrame:SetColorRGB(r,g,b)
     ColorPickerFrame.previousValues = {r,g,b}
   elseif t == "frm" then
     local r,g,b
-    if AzerothAdmin.db.profile.style.color.buffer.frames then
-      r = AzerothAdmin.db.profile.style.color.buffer.frames.r
-      g = AzerothAdmin.db.profile.style.color.buffer.frames.g
-      b = AzerothAdmin.db.profile.style.color.buffer.frames.b
+    if WoWPrimeAdminPanel.db.profile.style.color.buffer.frames then
+      r = WoWPrimeAdminPanel.db.profile.style.color.buffer.frames.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.buffer.frames.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.buffer.frames.b
     else
-      r = AzerothAdmin.db.profile.style.color.frames.r
-      g = AzerothAdmin.db.profile.style.color.frames.g
-      b = AzerothAdmin.db.profile.style.color.frames.b
+      r = WoWPrimeAdminPanel.db.profile.style.color.frames.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.frames.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.frames.b
     end
     ColorPickerFrame.cancelFunc = function(prev)
       local r,g,b = unpack(prev)
@@ -226,23 +226,23 @@ function AzerothAdminCommands.ShowColorPicker(t)
     ColorPickerFrame.func = function()
       local r,g,b = ColorPickerFrame:GetColorRGB()
       ma_frmcolorshowbutton_texture:SetTexture(r,g,b)
-      AzerothAdmin.db.profile.style.color.buffer.frames = {}
-      AzerothAdmin.db.profile.style.color.buffer.frames.r = r
-      AzerothAdmin.db.profile.style.color.buffer.frames.g = g
-      AzerothAdmin.db.profile.style.color.buffer.frames.b = b
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.frames = {}
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.frames.r = r
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.frames.g = g
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.frames.b = b
     end
     ColorPickerFrame:SetColorRGB(r,g,b)
     ColorPickerFrame.previousValues = {r,g,b}
   elseif t == "btn" then
     local r,g,b
-    if AzerothAdmin.db.profile.style.color.buffer.buttons then
-      r = AzerothAdmin.db.profile.style.color.buffer.buttons.r
-      g = AzerothAdmin.db.profile.style.color.buffer.buttons.g
-      b = AzerothAdmin.db.profile.style.color.buffer.buttons.b
+    if WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons then
+      r = WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons.b
     else
-      r = AzerothAdmin.db.profile.style.color.buttons.r
-      g = AzerothAdmin.db.profile.style.color.buttons.g
-      b = AzerothAdmin.db.profile.style.color.buttons.b
+      r = WoWPrimeAdminPanel.db.profile.style.color.buttons.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.buttons.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.buttons.b
     end
     ColorPickerFrame.cancelFunc = function(prev)
       local r,g,b = unpack(prev)
@@ -251,23 +251,23 @@ function AzerothAdminCommands.ShowColorPicker(t)
     ColorPickerFrame.func = function()
       local r,g,b = ColorPickerFrame:GetColorRGB()
       ma_btncolorshowbutton_texture:SetTexture(r,g,b)
-      AzerothAdmin.db.profile.style.color.buffer.buttons = {}
-      AzerothAdmin.db.profile.style.color.buffer.buttons.r = r
-      AzerothAdmin.db.profile.style.color.buffer.buttons.g = g
-      AzerothAdmin.db.profile.style.color.buffer.buttons.b = b
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons = {}
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons.r = r
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons.g = g
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.buttons.b = b
     end
     ColorPickerFrame:SetColorRGB(r,g,b)
     ColorPickerFrame.previousValues = {r,g,b}
   elseif t == "linkifier" then
     local r,g,b
-    if AzerothAdmin.db.profile.style.color.buffer.linkifier then
-      r = AzerothAdmin.db.profile.style.color.buffer.linkifier.r
-      g = AzerothAdmin.db.profile.style.color.buffer.linkifier.g
-      b = AzerothAdmin.db.profile.style.color.buffer.linkifier.b
+    if WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier then
+      r = WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier.b
     else
-      r = AzerothAdmin.db.profile.style.color.linkifier.r
-      g = AzerothAdmin.db.profile.style.color.linkifier.g
-      b = AzerothAdmin.db.profile.style.color.linkifier.b
+      r = WoWPrimeAdminPanel.db.profile.style.color.linkifier.r
+      g = WoWPrimeAdminPanel.db.profile.style.color.linkifier.g
+      b = WoWPrimeAdminPanel.db.profile.style.color.linkifier.b
     end
     ColorPickerFrame.cancelFunc = function(prev)
       local r,g,b = unpack(prev)
@@ -276,10 +276,10 @@ function AzerothAdminCommands.ShowColorPicker(t)
     ColorPickerFrame.func = function()
       local r,g,b = ColorPickerFrame:GetColorRGB()
       ma_linkifiercolorbutton_texture:SetTexture(r,g,b)
-      AzerothAdmin.db.profile.style.color.buffer.linkifier = {}
-      AzerothAdmin.db.profile.style.color.buffer.linkifier.r = r
-      AzerothAdmin.db.profile.style.color.buffer.linkifier.g = g
-      AzerothAdmin.db.profile.style.color.buffer.linkifier.b = b
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier = {}
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier.r = r
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier.g = g
+      WoWPrimeAdminPanel.db.profile.style.color.buffer.linkifier.b = b
     end
     ColorPickerFrame:SetColorRGB(r,g,b)
     ColorPickerFrame.previousValues = {r,g,b}
@@ -288,8 +288,8 @@ function AzerothAdminCommands.ShowColorPicker(t)
   ColorPickerFrame:Show()
 end
 
-function AzerothAdminCommands.ChangeWeather(status)
+function WoWPrimeAdminPanelCommands.ChangeWeather(status)
   if not (status == "") then
-    AzerothAdmin:ChatMsg(".wchange "..status)
+    WoWPrimeAdminPanel:ChatMsg(".wchange "..status)
   end
 end

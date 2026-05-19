@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,24 +12,24 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
 -- Initializing dynamic frames with LUA and FrameLib
 -- This script must be listed in the .toc after "Frames_SectionMisc.lua"
--- Also some variables are globally taken from AzerothAdmin.lua
+-- Also some variables are globally taken from WoWPrimeAdminPanel.lua
 
-function AzerothAdmin:CreateServerSection()
+function WoWPrimeAdminPanel:CreateServerSection()
   local transparency = {
-    bg = AzerothAdmin.db.profile.style.transparency.backgrounds,
-    btn = AzerothAdmin.db.profile.style.transparency.buttons,
-    frm = AzerothAdmin.db.profile.style.transparency.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.transparency.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.transparency.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.transparency.frames
   }
   local color = {
-    bg = AzerothAdmin.db.profile.style.color.backgrounds,
-    btn = AzerothAdmin.db.profile.style.color.buttons,
-    frm = AzerothAdmin.db.profile.style.color.frames
+    bg = WoWPrimeAdminPanel.db.profile.style.color.backgrounds,
+    btn = WoWPrimeAdminPanel.db.profile.style.color.buttons,
+    frm = WoWPrimeAdminPanel.db.profile.style.color.frames
   }
 
   FrameLib:BuildFrame({
@@ -479,13 +479,13 @@ function AzerothAdmin:CreateServerSection()
   local q = 0
   x:SetScript("OnUpdate",function()
       q = q + 1
-      local delayParam = tonumber(AzerothAdmin.db.profile.style.delayparam)
+      local delayParam = tonumber(WoWPrimeAdminPanel.db.profile.style.delayparam)
       if delayParam and q > delayParam then --10000=approx 1 minute, 50000=approx 5 minutes FIX #13
           -- Don't update server info or graph if a dropdown menu is currently open
           -- Check both UIDROPDOWNMENU_OPEN_MENU and if any dropdown list frames are visible
           local dropdownOpen = UIDROPDOWNMENU_OPEN_MENU or (DropDownList1 and DropDownList1:IsShown())
           if not dropdownOpen then
-              AzerothAdmin:ChatMsg(".server info")
+              WoWPrimeAdminPanel:ChatMsg(".server info")
               local diffValue = ma_difftext:GetText():gsub("ms", "")
               local s = tonumber(diffValue)
               if s then

@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_itIT(). Change
@@ -82,13 +82,13 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "itIT")
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "itIT")
 if L then
   local translations = {
 --[[General]]
   --[[Tooltips]]
     ["tt_Default"]                    = "Muovi il cursore su un elemento per attivare il tooltip!",
-    ["tt_LanguageButton"]             = "Ricarica AzerothAdmin e applica la lingua selezionata.",
+    ["tt_LanguageButton"]             = "Ricarica WoWPrimeAdminPanel e applica la lingua selezionata.",
     ["tt_RefreshButton"]              = "Aggiorna le informazioni del server.",
   --[[Control Labels]]
     ["ma_LanguageButton"]             = "Ricarica UI",
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "Chiudi Finestra",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" },
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" },
     ["lang"]                          = "Italiano",
     ["realm"]                         = "|cFF00FF00Regno:|r "..GetCVar("realmName"),
     ["char"]                          = "|cFF00FF00Personaggio:|r "..UnitName("player"),
@@ -127,7 +127,7 @@ if L then
   --[[Name]]
     ["tabmenu_Main"]                  = "GM",
   --[[Tooltips]]
-    ["tt_MainButton"]                 = "Attiva/disattiva il pannello principale di AzerothAdmin.",
+    ["tt_MainButton"]                 = "Attiva/disattiva il pannello principale di WoWPrimeAdminPanel.",
     ["tt_DisplayAccountLevel"]        = "Mostra il livello del tuo account",
     ["tt_GMOnButton"]                 = "Attiva la modalità GM.",
     ["tt_GMOffButton"]                = "Disattiva la modalità GM.",
@@ -736,11 +736,11 @@ if L then
     ["ma_WeatherRain"]                = "Pioggia",
     ["ma_WeatherSnow"]                = "Neve",
     ["ma_WeatherSand"]                = "Sabbia",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r Impostazione trasparenza salvata. Aggiorna Modifiche o Ricarica UI per applicare.",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r Impostazione stringhe di ricerca localizzate salvata. Aggiorna Modifiche o Ricarica UI per applicare.",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r Impostazione minimenu salvata.",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r Impostazione tooltip salvata. Aggiorna Modifiche o Ricarica UI per applicare.",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r Impostazione output chat salvata.",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r Impostazione trasparenza salvata. Aggiorna Modifiche o Ricarica UI per applicare.",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r Impostazione stringhe di ricerca localizzate salvata. Aggiorna Modifiche o Ricarica UI per applicare.",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r Impostazione minimenu salvata.",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r Impostazione tooltip salvata. Aggiorna Modifiche o Ricarica UI per applicare.",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r Impostazione output chat salvata.",
 
 
 

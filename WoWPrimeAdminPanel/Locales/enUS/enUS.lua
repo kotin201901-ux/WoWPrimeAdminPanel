@@ -1,7 +1,7 @@
 ﻿-------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,7 +12,7 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ How to add a localised string:
   ["strength"] = "Stärke",
 6. Some of these lines also contain color codes (example: |cFF00FF00 and |r) Don't alter these, please.
 
-AzerothAdmin Locale Team:
+WoWPrimeAdminPanel Locale Team:
 You have received this file which currently contains enUS strings, but will actually be the file for your
 selected language.
 1. Edit the first un-commented line below, which should resemble: function Return_enUS(). Change
@@ -82,7 +82,7 @@ SEXHOTPINK	   |cffFF6EB4
 
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("AzerothAdmin", "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("WoWPrimeAdminPanel", "enUS", true)
 if L then
   local translations = {
 --[[General]]
@@ -107,7 +107,7 @@ if L then
     ["ma_CloseWindow"]                = "X",
     ["tt_CloseWindow"]                = "Close Window",
   --[[Other]]
-    ["slashcmds"]                     = { "/AzerothAdmin", "/aa" },
+    ["slashcmds"]                     = { "/wpa", "/wpadmin" },
     ["lang"]                          = "English",
     ["realm"]                         = "|cFF00FF00Realm:|r "..GetCVar("realmName"), 
     ["char"]                          = "|cFF00FF00Char:|r "..UnitName("player"), 
@@ -784,11 +784,11 @@ if L then
     ["ma_WeatherRain"]                = "Rain",
     ["ma_WeatherSnow"]                = "Snow",
     ["ma_WeatherSand"]                = "Sand",
-    ["msg_transparency_saved"]        = "|cff00ff00AzerothAdmin:|r Transparency setting saved. Update Changes or Reload UI to apply",
-    ["msg_localsearch_saved"]         = "|cff00ff00AzerothAdmin:|r Localized search strings setting saved. Update Changes or Reload UI to apply",
-    ["msg_minimenu_saved"]            = "|cff00ff00AzerothAdmin:|r Minimenu setting saved",
-    ["msg_tooltip_saved"]             = "|cff00ff00AzerothAdmin:|r Tooltip setting saved. Update Changes or Reload UI to apply",
-    ["msg_chatoutput_saved"]          = "|cff00ff00AzerothAdmin:|r Chat output setting saved",
+    ["msg_transparency_saved"]        = "|cff00ff00WoWPrimeAdminPanel:|r Transparency setting saved. Update Changes or Reload UI to apply",
+    ["msg_localsearch_saved"]         = "|cff00ff00WoWPrimeAdminPanel:|r Localized search strings setting saved. Update Changes or Reload UI to apply",
+    ["msg_minimenu_saved"]            = "|cff00ff00WoWPrimeAdminPanel:|r Minimenu setting saved",
+    ["msg_tooltip_saved"]             = "|cff00ff00WoWPrimeAdminPanel:|r Tooltip setting saved. Update Changes or Reload UI to apply",
+    ["msg_chatoutput_saved"]          = "|cff00ff00WoWPrimeAdminPanel:|r Chat output setting saved",
 
 
 

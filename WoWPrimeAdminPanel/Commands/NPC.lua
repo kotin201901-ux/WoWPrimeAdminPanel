@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,33 +12,33 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
-AzerothAdminCommands = AzerothAdminCommands or {}
+WoWPrimeAdminPanelCommands = WoWPrimeAdminPanelCommands or {}
 
-function AzerothAdminCommands.InitModelFrameNPC()
-  ma_npcmodelframe:SetScript("OnUpdate", function(self, elapsed) AzerothAdminCommands.AzerothAdminNpcModelOnUpdate(self, elapsed) end)
+function WoWPrimeAdminPanelCommands.InitModelFrameNPC()
+  ma_npcmodelframe:SetScript("OnUpdate", function(self, elapsed) WoWPrimeAdminPanelCommands.WoWPrimeAdminPanelNpcModelOnUpdate(self, elapsed) end)
   ma_npcmodelframe.rotation = 0.61;
   ma_npcmodelframe:SetRotation(ma_npcmodelframe.rotation)
   ma_npcmodelframe:SetUnit("player")
 
 end
 
-function AzerothAdminCommands.NpcModelRotateLeft()
+function WoWPrimeAdminPanelCommands.NpcModelRotateLeft()
   ma_npcmodelframe.rotation = ma_npcmodelframe.rotation - 0.03
   ma_npcmodelframe:SetRotation(ma_npcmodelframe.rotation)
   PlaySound("igInventoryRotateCharacter")
 end
 
-function AzerothAdminCommands.NpcModelRotateRight()
+function WoWPrimeAdminPanelCommands.NpcModelRotateRight()
   ma_npcmodelframe.rotation = ma_npcmodelframe.rotation + 0.03
   ma_npcmodelframe:SetRotation(ma_npcmodelframe.rotation)
   PlaySound("igInventoryRotateCharacter")
 end
 
-function AzerothAdminCommands.AzerothAdminNpcModelOnUpdate(frame, elapsedTime)
+function WoWPrimeAdminPanelCommands.WoWPrimeAdminPanelNpcModelOnUpdate(frame, elapsedTime)
   if ( ma_npcmodelrotatelbutton:GetButtonState() == "PUSHED" ) then
   frame.rotation = frame.rotation + (elapsedTime * 2 * PI * ROTATIONS_PER_SECOND)
   if ( frame.rotation < 0 ) then
@@ -55,11 +55,11 @@ function AzerothAdminCommands.AzerothAdminNpcModelOnUpdate(frame, elapsedTime)
   end
 end
 
-function AzerothAdminCommands.NpcModelChanged()
+function WoWPrimeAdminPanelCommands.NpcModelChanged()
   if not ma_npcmodelframe then
   return -- Frame not created yet
   end
-  if not AzerothAdmin:Selection("none") then
+  if not WoWPrimeAdminPanel:Selection("none") then
   ma_npcmodelframe:SetUnit("target")
   else
   ma_npcmodelframe:SetUnit("player")
@@ -67,130 +67,130 @@ function AzerothAdminCommands.NpcModelChanged()
   ma_npcmodelframe:RefreshUnit()
 end
 
-function AzerothAdminCommands.NPCKillSomething()
+function WoWPrimeAdminPanelCommands.NPCKillSomething()
   local target = UnitName("target")
-  AzerothAdmin:ChatMsg(".die")
+  WoWPrimeAdminPanel:ChatMsg(".die")
 end
 
-function AzerothAdminCommands.Respawn()
-  AzerothAdmin:ChatMsg(".respawn")
+function WoWPrimeAdminPanelCommands.Respawn()
+  WoWPrimeAdminPanel:ChatMsg(".respawn")
 end
 
-function AzerothAdminCommands.NPCDistance()
+function WoWPrimeAdminPanelCommands.NPCDistance()
   -- Check if a target exists
   if UnitExists("target") then
-    AzerothAdmin:ID_Setting_Start_Write(1)
+    WoWPrimeAdminPanel:ID_Setting_Start_Write(1)
     local NPC_target = UnitName("target")
-    AzerothAdmin:ChatMsg(".distance")
+    WoWPrimeAdminPanel:ChatMsg(".distance")
   else
     print("Target NPC to use distance command")
   end
 end
 
-function AzerothAdminCommands.NPCShowGUID()
+function WoWPrimeAdminPanelCommands.NPCShowGUID()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".guid")
+  WoWPrimeAdminPanel:ChatMsg(".guid")
 end
 
-function AzerothAdminCommands.NPCInfo()
+function WoWPrimeAdminPanelCommands.NPCInfo()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc info")
+  WoWPrimeAdminPanel:ChatMsg(".npc info")
 end
 
-function AzerothAdminCommands.NPCDemorph()
+function WoWPrimeAdminPanelCommands.NPCDemorph()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".demorph")
-end
-
-
-function AzerothAdminCommands.NPCMove()
-  local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc move")
+  WoWPrimeAdminPanel:ChatMsg(".demorph")
 end
 
 
-
-function AzerothAdminCommands.NPCDel()
+function WoWPrimeAdminPanelCommands.NPCMove()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc del")
+  WoWPrimeAdminPanel:ChatMsg(".npc move")
 end
 
-function AzerothAdminCommands.NPC_GUID_Get()
-	AzerothAdmin:ID_Setting_Start_Write(1)
+
+
+function WoWPrimeAdminPanelCommands.NPCDel()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc info")
+  WoWPrimeAdminPanel:ChatMsg(".npc del")
 end
 
-function AzerothAdminCommands.NPC_Add()
+function WoWPrimeAdminPanelCommands.NPC_GUID_Get()
+	WoWPrimeAdminPanel:ID_Setting_Start_Write(1)
+  local NPC_target = UnitName("target")
+  WoWPrimeAdminPanel:ChatMsg(".npc info")
+end
+
+function WoWPrimeAdminPanelCommands.NPC_Add()
   local NPC_target = UnitName("target")
   local npc = ma_NPC_idbutton:GetText()
-  AzerothAdmin:ChatMsg(".npc add "..npc)
+  WoWPrimeAdminPanel:ChatMsg(".npc add "..npc)
 end
 
-function AzerothAdminCommands.NPC_AddID()
+function WoWPrimeAdminPanelCommands.NPC_AddID()
   local idbox = ma_NPC_idbutton:GetText()
   local params = ma_npccharactertarget:GetText()
   local creatureid = (idbox ~= "" and idbox) or params
-  AzerothAdmin:ChatMsg(".npc add "..creatureid)
+  WoWPrimeAdminPanel:ChatMsg(".npc add "..creatureid)
 end
 
-function AzerothAdminCommands.NPCGo()
+function WoWPrimeAdminPanelCommands.NPCGo()
   local NPC_target = UnitName("target")
   local npc =	ma_NPC_guidbutton:GetText()
-  AzerothAdmin:ChatMsg(".go creature "..npc)
+  WoWPrimeAdminPanel:ChatMsg(".go creature "..npc)
 end
 
-function AzerothAdminCommands.NPCMorph()
+function WoWPrimeAdminPanelCommands.NPCMorph()
   local cname = ma_charactertarget:GetText()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".modify morph "..npccname)
+  WoWPrimeAdminPanel:ChatMsg(".modify morph "..npccname)
 end
 
-function AzerothAdminCommands.NPCSay()
+function WoWPrimeAdminPanelCommands.NPCSay()
   local cname = ma_charactertarget:GetText()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".npc say "..npccname)
+  WoWPrimeAdminPanel:ChatMsg(".npc say "..npccname)
 end
 
-function AzerothAdminCommands.NPCYell()
+function WoWPrimeAdminPanelCommands.NPCYell()
   local cname = ma_charactertarget:GetText()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".npc yell "..npccname)
+  WoWPrimeAdminPanel:ChatMsg(".npc yell "..npccname)
 end
 
-function AzerothAdminCommands.NPCAura()
+function WoWPrimeAdminPanelCommands.NPCAura()
   local cname = ma_charactertarget:GetText()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".aura "..npccname)
+  WoWPrimeAdminPanel:ChatMsg(".aura "..npccname)
 end
 
-function AzerothAdminCommands.NPCUnaura()
+function WoWPrimeAdminPanelCommands.NPCUnaura()
   local cname = ma_charactertarget:GetText()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".unaura "..npccname)
+  WoWPrimeAdminPanel:ChatMsg(".unaura "..npccname)
 end
 
-function AzerothAdminCommands.NpcEmote(emote)
-  AzerothAdmin:ChatMsg(".npc playemote "..emote)
+function WoWPrimeAdminPanelCommands.NpcEmote(emote)
+  WoWPrimeAdminPanel:ChatMsg(".npc playemote "..emote)
 end
 
-function AzerothAdminCommands.NPCBindSight()
+function WoWPrimeAdminPanelCommands.NPCBindSight()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".bindsight")
+  WoWPrimeAdminPanel:ChatMsg(".bindsight")
 end
 
-function AzerothAdminCommands.NPCUnBindSight()
+function WoWPrimeAdminPanelCommands.NPCUnBindSight()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".unbindsight")
+  WoWPrimeAdminPanel:ChatMsg(".unbindsight")
 end
 
-function AzerothAdminCommands.NPCComeToMe()
+function WoWPrimeAdminPanelCommands.NPCComeToMe()
   local npccname = ma_npccharactertarget:GetText()
-  AzerothAdmin:ChatMsg(".cometome 1")
+  WoWPrimeAdminPanel:ChatMsg(".cometome 1")
 
 end
 
-function AzerothAdminCommands.DisplayUP()
+function WoWPrimeAdminPanelCommands.DisplayUP()
   -- Check if display ID exists
   local guid = ma_NPC_guidbutton:GetText()
   local displayid = ma_npcdisplayid:GetText()
@@ -199,13 +199,13 @@ function AzerothAdminCommands.DisplayUP()
     local currentid = ma_npcdisplayid:GetText()
     currentid = currentid + 1
     ma_npcdisplayid:SetText(currentid)
-    AzerothAdmin:ChatMsg(".npc set model "..currentid)
+    WoWPrimeAdminPanel:ChatMsg(".npc set model "..currentid)
   else
     print("Target NPC and use 'Get GUID' first")
   end
 end
 
-function AzerothAdminCommands.DisplayDown()
+function WoWPrimeAdminPanelCommands.DisplayDown()
   -- Check if display ID exists
   local guid = ma_NPC_guidbutton:GetText()
   local displayid = ma_npcdisplayid:GetText()
@@ -214,13 +214,13 @@ function AzerothAdminCommands.DisplayDown()
     local currentid = ma_npcdisplayid:GetText()
     currentid = currentid - 1
     ma_npcdisplayid:SetText(currentid)
-    AzerothAdmin:ChatMsg(".npc set model "..currentid)
+    WoWPrimeAdminPanel:ChatMsg(".npc set model "..currentid)
   else
     print("Target NPC and use 'Get GUID' first")
   end
 end
 
-function AzerothAdminCommands.ID_UP()
+function WoWPrimeAdminPanelCommands.ID_UP()
   -- Check if ID exists
   local guid = ma_NPC_guidbutton:GetText()
   local npcid = ma_NPC_idbutton:GetText()
@@ -234,7 +234,7 @@ function AzerothAdminCommands.ID_UP()
   end
 end
 
-function AzerothAdminCommands.ID_DOWN()
+function WoWPrimeAdminPanelCommands.ID_DOWN()
   -- Check if ID exists
   local guid = ma_NPC_guidbutton:GetText()
   local npcid = ma_NPC_idbutton:GetText()
@@ -248,7 +248,7 @@ function AzerothAdminCommands.ID_DOWN()
   end
 end
 
-function AzerothAdminCommands.NPCClear()
+function WoWPrimeAdminPanelCommands.NPCClear()
   -- Clear all NPC info text boxes
   ma_NPC_guidbutton:SetText("")
   ma_NPC_idbutton:SetText("")
@@ -256,14 +256,14 @@ function AzerothAdminCommands.NPCClear()
   ma_npc_distance_box:SetText("")
 end
 
-function AzerothAdminCommands.NPCModelZoomIn()
+function WoWPrimeAdminPanelCommands.NPCModelZoomIn()
   ma_npcmodelframe:SetCamera(0)
 --  ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() + .1)
   --ma_modelframe:SetPosition(1,ma_modelframe:GetModelScale()*3,0)
   --ma_modelframe:RefreshUnit()
 end
 
-function AzerothAdminCommands.NPCModelZoomOut()
+function WoWPrimeAdminPanelCommands.NPCModelZoomOut()
   ma_npcmodelframe:SetCamera(1)
   ma_npcmodelframe:RefreshUnit()
 
@@ -274,75 +274,75 @@ function AzerothAdminCommands.NPCModelZoomOut()
 
 end
 
-function AzerothAdminCommands.NPCPossess()
+function WoWPrimeAdminPanelCommands.NPCPossess()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".possess")
+  WoWPrimeAdminPanel:ChatMsg(".possess")
 
 end
-function AzerothAdminCommands.NPCUnPossess()
+function WoWPrimeAdminPanelCommands.NPCUnPossess()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".unpossess")
+  WoWPrimeAdminPanel:ChatMsg(".unpossess")
 
 end
 
-function AzerothAdminCommands.NPCFreeze()
+function WoWPrimeAdminPanelCommands.NPCFreeze()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc set movetype stay NODEL")
+  WoWPrimeAdminPanel:ChatMsg(".npc set movetype stay NODEL")
 end
 
-function AzerothAdminCommands.NPCFreezeDEL()
+function WoWPrimeAdminPanelCommands.NPCFreezeDEL()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc set movetype stay")
+  WoWPrimeAdminPanel:ChatMsg(".npc set movetype stay")
 end
 
-function AzerothAdminCommands.WayEndAdd()
+function WoWPrimeAdminPanelCommands.WayEndAdd()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".wp add")
+  WoWPrimeAdminPanel:ChatMsg(".wp add")
 end
 
-function AzerothAdminCommands.NPCAdd_Way()
-  local NPC_target = UnitName("target")
-  local npc =	ma_NPC_guidbutton:GetText()
-  AzerothAdmin:ChatMsg(".wp add "..npc)
-  --AzerothAdmin:Way_Point_Add_Start_Write(1)
-end
-
-function AzerothAdminCommands.WayModifyAdd()
-  local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".wp modify add")
-end
-
-function AzerothAdminCommands.WayModifyDel()
-  local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".wp modify del")
-end
-
-function AzerothAdminCommands.NPCAdd_WayShowOn()
+function WoWPrimeAdminPanelCommands.NPCAdd_Way()
   local NPC_target = UnitName("target")
   local npc =	ma_NPC_guidbutton:GetText()
-  AzerothAdmin:ChatMsg(".wp show on "..npc)
+  WoWPrimeAdminPanel:ChatMsg(".wp add "..npc)
+  --WoWPrimeAdminPanel:Way_Point_Add_Start_Write(1)
 end
 
-function AzerothAdminCommands.WayShowOn()
+function WoWPrimeAdminPanelCommands.WayModifyAdd()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".wp show on")
+  WoWPrimeAdminPanel:ChatMsg(".wp modify add")
 end
 
-function AzerothAdminCommands.WayShowOff()
+function WoWPrimeAdminPanelCommands.WayModifyDel()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".wp show off")
+  WoWPrimeAdminPanel:ChatMsg(".wp modify del")
 end
 
-function AzerothAdminCommands.NPCUnFreeze_Way()
+function WoWPrimeAdminPanelCommands.NPCAdd_WayShowOn()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".npc set movetype way NODEL")
+  local npc =	ma_NPC_guidbutton:GetText()
+  WoWPrimeAdminPanel:ChatMsg(".wp show on "..npc)
 end
 
-function AzerothAdminCommands.ShowMove()
+function WoWPrimeAdminPanelCommands.WayShowOn()
   local NPC_target = UnitName("target")
-  AzerothAdmin:ChatMsg(".movegens")
+  WoWPrimeAdminPanel:ChatMsg(".wp show on")
 end
 
-function AzerothAdminCommands.NpcClearParams()
+function WoWPrimeAdminPanelCommands.WayShowOff()
+  local NPC_target = UnitName("target")
+  WoWPrimeAdminPanel:ChatMsg(".wp show off")
+end
+
+function WoWPrimeAdminPanelCommands.NPCUnFreeze_Way()
+  local NPC_target = UnitName("target")
+  WoWPrimeAdminPanel:ChatMsg(".npc set movetype way NODEL")
+end
+
+function WoWPrimeAdminPanelCommands.ShowMove()
+  local NPC_target = UnitName("target")
+  WoWPrimeAdminPanel:ChatMsg(".movegens")
+end
+
+function WoWPrimeAdminPanelCommands.NpcClearParams()
   ma_npccharactertarget:SetText("")
 end

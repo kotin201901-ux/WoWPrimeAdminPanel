@@ -1,8 +1,8 @@
-# AzerothAdmin Localization Guide
+# WoWPrimeAdminPanel Localization Guide
 
 ## Overview
 
-AzerothAdmin now supports multiple languages! This document explains the localization system and how to contribute translations.
+WoWPrimeAdminPanel now supports multiple languages! This document explains the localization system and how to contribute translations.
 
 ## Supported Languages
 
@@ -87,7 +87,7 @@ All locale files currently contain English text as placeholders. This allows the
    **DO NOT TRANSLATE:**
 
    ```lua
-   ["slashcmds"] = { "/AzerothAdmin", "/aa" }  -- These are commands
+   ["slashcmds"] = { "/wpa", "/wpadmin" }  -- These are commands
    ```
 
 4. **Pattern Files (Advanced)**
@@ -184,7 +184,7 @@ If you have questions about localization, please:
 
 ## Credits
 
-Thank you to all translators who contribute to making AzerothAdmin accessible to players worldwide!
+Thank you to all translators who contribute to making WoWPrimeAdminPanel accessible to players worldwide!
 
 ---
 

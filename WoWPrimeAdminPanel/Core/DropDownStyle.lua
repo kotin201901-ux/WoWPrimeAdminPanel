@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------------------------------------
 --
--- AzerothAdmin Version 3.x
--- AzerothAdmin is a derivative of TrinityAdmin/MangAdmin.
+-- WoWPrimeAdminPanel Version 3.x
+-- WoWPrimeAdminPanel is a derivative of TrinityAdmin/MangAdmin.
 --
 -- Copyright (C) 2007 Free Software Foundation, Inc.
 -- License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.en.html>
@@ -12,14 +12,14 @@
 -- along with this program; if not, write to the Free Software
 -- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 --
--- Repository: https://github.com/superstyro/AzerothAdmin
+-- Repository: https://github.com/kotin201901-ux/WoWPrimeAdminPanel
 --
 -------------------------------------------------------------------------------------------------------------
 
--- ElvUI-style dropdown styling for AzerothAdmin
+-- ElvUI-style dropdown styling for WoWPrimeAdminPanel
 -- This module applies modern styling to WoW's default dropdown menus
 
-local AzerothAdminDropDownStyle = {}
+local WoWPrimeAdminPanelDropDownStyle = {}
 
 -- Style constants matching ElvUI aesthetics
 local DROPDOWN_STYLE = {
@@ -55,7 +55,7 @@ local MODERN_BACKDROP = {
 }
 
 -- Style a dropdown button (the main clickable part)
-function AzerothAdminDropDownStyle:StyleDropDownButton(dropdown)
+function WoWPrimeAdminPanelDropDownStyle:StyleDropDownButton(dropdown)
   if not dropdown then return end
 
   local dropdownName = dropdown:GetName()
@@ -141,7 +141,7 @@ function AzerothAdminDropDownStyle:StyleDropDownButton(dropdown)
 end
 
 -- Style the dropdown menu list
-function AzerothAdminDropDownStyle:StyleDropDownList(level)
+function WoWPrimeAdminPanelDropDownStyle:StyleDropDownList(level)
   level = level or 1
   local listFrame = _G["DropDownList"..level]
 
@@ -184,7 +184,7 @@ function AzerothAdminDropDownStyle:StyleDropDownList(level)
 end
 
 -- Style individual menu buttons
-function AzerothAdminDropDownStyle:StyleMenuButton(button, level)
+function WoWPrimeAdminPanelDropDownStyle:StyleMenuButton(button, level)
   if not button or button.styled then return end
 
   local buttonName = button:GetName()
@@ -257,11 +257,11 @@ end
 
 -- Hook into UIDropDownMenu_Initialize to style menus as they're created
 local function HookDropDownMenuShow(level)
-  AzerothAdminDropDownStyle:StyleDropDownList(level or 1)
+  WoWPrimeAdminPanelDropDownStyle:StyleDropDownList(level or 1)
 end
 
 -- Apply styling to all existing dropdowns
-function AzerothAdminDropDownStyle:ApplyToAll()
+function WoWPrimeAdminPanelDropDownStyle:ApplyToAll()
   -- Hook the menu creation
   hooksecurefunc("UIDropDownMenu_CreateFrames", function(level, index)
     HookDropDownMenuShow(level)
@@ -274,10 +274,10 @@ function AzerothAdminDropDownStyle:ApplyToAll()
 end
 
 -- Initialize the styling system
-function AzerothAdmin:InitDropDownStyling()
-  AzerothAdminDropDownStyle:ApplyToAll()
+function WoWPrimeAdminPanel:InitDropDownStyling()
+  WoWPrimeAdminPanelDropDownStyle:ApplyToAll()
 
-  -- Style all AzerothAdmin dropdowns on creation
+  -- Style all WoWPrimeAdminPanel dropdowns on creation
   local dropdowns = {
     "ma_languagedropdown",
     "ma_weatherdropdown",
@@ -294,10 +294,10 @@ function AzerothAdmin:InitDropDownStyling()
   for _, name in ipairs(dropdowns) do
     local dropdown = _G[name]
     if dropdown then
-      AzerothAdminDropDownStyle:StyleDropDownButton(dropdown)
+      WoWPrimeAdminPanelDropDownStyle:StyleDropDownButton(dropdown)
     end
   end
 end
 
 -- Make the style module globally available
-_G.AzerothAdminDropDownStyle = AzerothAdminDropDownStyle
+_G.WoWPrimeAdminPanelDropDownStyle = WoWPrimeAdminPanelDropDownStyle
