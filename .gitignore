@@ -1,0 +1,23 @@
+# WoW addon temporary files
+*.bak
+*.tmp
+*.log
+
+# Packager artifacts
+.release/
+release/
+/CHANGELOG.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Saved variables (user data, not for repo)
+WTF/
+Cache/
+
+# OS
+.DS_Store
+Thumbs.db
