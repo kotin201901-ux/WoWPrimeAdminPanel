@@ -39,8 +39,8 @@ Locales\enUS\strings_enUS.lua
 # Locales\ptPT\strings_ptPT.lua
 # Locales\ptBR\ptBR.lua
 # Locales\ptBR\strings_ptBR.lua
-# Locales\ruRU\ruRU.lua
-# Locales\ruRU\strings_ruRU.lua
+Locales\ruRU\ruRU.lua
+Locales\ruRU\strings_ruRU.lua
 # Locales\koKR\koKR.lua
 # Locales\koKR\strings_koKR.lua
 # Locales\zhCN\zhCN.lua

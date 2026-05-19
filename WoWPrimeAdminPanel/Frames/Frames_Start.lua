@@ -152,7 +152,7 @@ function WoWPrimeAdminPanel:CreateStartFrames()
     group = "bg",
     parent = ma_topframe,
     texture = {
-      file = ROOT_PATH.."Textures\\logo.tga"
+      color = {0.051, 0.106, 0.165, 0}  -- logo.tga скрыт (Этап 4.3); вернуть file= когда будет лого WoW-Prime
     },
     size = {
       width = 500, --Original 512

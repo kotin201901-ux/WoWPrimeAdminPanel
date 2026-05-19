@@ -131,19 +131,19 @@ local defaults = {
       color = {
         buffer = {},
         buttons = {
-          r = 33,
-          g = 164,
-          b = 210
+          r = 0.118,
+          g = 0.227,
+          b = 0.322
         },
         frames = {
-          r = 102,
-          g = 102,
-          b = 102
+          r = 0.078,
+          g = 0.157,
+          b = 0.220
         },
         backgrounds = {
-          r = 0,
-          g = 0,
-          b = 0
+          r = 0.051,
+          g = 0.106,
+          b = 0.165
         },
         linkifier = {
           r = 0.8705882352941177,
